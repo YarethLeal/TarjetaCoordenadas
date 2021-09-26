@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutenticacionCoordenadas", "AutenticacionCoordenadas\AutenticacionCoordenadas.csproj", "{2C7DF02B-0A10-4FC0-81FC-A543B8D67318}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C7DF02B-0A10-4FC0-81FC-A543B8D67318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7DF02B-0A10-4FC0-81FC-A543B8D67318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7DF02B-0A10-4FC0-81FC-A543B8D67318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7DF02B-0A10-4FC0-81FC-A543B8D67318}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EF8F360-04B1-4855-A48F-52F051D3336A}
+	EndGlobalSection
+EndGlobal

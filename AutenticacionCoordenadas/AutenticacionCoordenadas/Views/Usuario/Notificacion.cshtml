@@ -1,0 +1,72 @@
+﻿
+<div>
+    <a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="float:right">Bienvenido: Usuario</a>
+</div>
+
+<div class="container p-3 my-3 text-black-50" style="background-color: #ffffff;">
+    <h1>Notificaciones:</h1>
+
+    <div class="table-responsive">
+        <table class="table" id="table">
+            <tr>
+                <th>Mensaje</th>
+                <th>Fecha</th>
+            </tr>
+
+            <tr>
+                <td>Su tarjeta ha sido asignada</td>
+                <td>21-12-21</td>
+            </tr>
+
+            <tr>
+                <td>Su tarjeta ha sido desbloqueada</td>
+                <td>30-12-21</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3">
+            <div class="modal fade" id="modalN">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                x
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                             <div class="text-center">
+                              <input type="submit" value="Borrar notificación" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
+                             </div>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var table = document.getElementById('table');
+
+    for (var i = 1; i < table.rows.length; i++) {
+        table.rows[i].onclick = function () {
+            //rIndex = this.rowIndex;
+            // alert(this.cells[0].innerHTML);
+           // alert("Borrar");
+            $("#modalN").modal('show');
+        };
+    }
+
+
+</script>
