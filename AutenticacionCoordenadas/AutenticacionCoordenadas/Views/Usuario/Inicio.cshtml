@@ -2,15 +2,15 @@
     
     <div>
   
-        <form>
+        <form method="post" asp-controller="Usuario" asp-action="Autenticacion">
 
             <div class="form-group w-100">
                 <label class="control-label">Nombre de usuario:</label>
-                <input class="form-control" />
+                <input class="form-control" required/>
             </div>
             <div class="form-group w-100">
                 <label class="control-label">Contraseña:</label>
-                <input  type="password" class="form-control" />
+                <input  type="password" class="form-control" required/>
             </div>
 
             <div class="text-center">
