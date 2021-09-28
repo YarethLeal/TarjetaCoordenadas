@@ -41,5 +41,19 @@ namespace AutenticacionCoordenadas.Controllers
             return View();
         }
 
+        public IActionResult ActualizaOficina()
+        {
+            return View();
+        }
+
+        public IActionResult BuscarOficina()
+        {
+            return View();
+        }
+
+        public IActionResult RegistroOficina()
+        {
+            return View();
+        }
     }
 }
