@@ -108,6 +108,6 @@ C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\Autenti
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\Razor\Views\Administrador\ActulizaOficina.cshtml.g.cs
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\Razor\Views\Administrador\BuscarOficina.cshtml.g.cs
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\Razor\Views\Administrador\RegistroOficina.cshtml.g.cs
+C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\Razor\Views\Administrador\ActualizaOficina.cshtml.g.cs
