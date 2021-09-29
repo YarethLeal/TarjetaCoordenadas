@@ -4,11 +4,11 @@
 <div class="d-flex justify-content-center">
 
     <div>
-        <p style="font-size:19px">Buscar usuario</p>
+        <p style="font-size:19px">Buscar Oficina</p>
         <form>
 
             <div class="form-group w-100">
-                <label class="control-label">Nombre de usuario:</label>
+                <label class="control-label">Nombre de oficina:</label>
                 <input class="form-control" />
             </div>
 
@@ -17,7 +17,7 @@
                 <input type="submit" value="Buscar" class="btn btn-primary" style="background-color: #005cb9;" />
             </div>
         </form>
-        
+
 
     </div>
 </div>
@@ -28,24 +28,24 @@
     <div class="table-responsive">
         <table class="table" id="table">
             <tr>
-                <th>Identificación</th>
+                <th>Código</th>
                 <th>Nombre</th>
-                <th>Primer apellido</th>
-                <th>Oficina</th>
+                <th>Usuario</th>
+                <th>Institución</th>
             </tr>
 
             <tr>
-                <td>101110111</td>
-                <td>Nombre1</td>
-                <td>Apellido1</td>
+                <td>OF01</td>
                 <td>Oficina1</td>
+                <td>Usuario1</td>
+                <td>OIJ</td>
             </tr>
 
             <tr>
-                <td>202220111</td>
-                <td>Nombre2</td>
-                <td>Apellido2</td>
+                <td>OF02</td>
                 <td>Oficina2</td>
+                <td>Usuario2</td>
+                <td>OIJ</td>
             </tr>
 
         </table>
@@ -55,7 +55,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-3">
-            <div class="modal fade" id="modalB">
+            <div class="modal fade" id="modalC">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -65,11 +65,11 @@
                         </div>
                         <div class="modal-body">
                             <div class="text-center">
-                                <form asp-area="" asp-controller="Administrador" asp-action="Actualiza">
-                                    <input type="submit" value="Actualizar usuario" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
+                                <form asp-area="" asp-controller="Administrador" asp-action="ActualizaOficina">
+                                    <input type="submit" value="Actualizar Oficina" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
                                 </form>
                                 <br />
-                                <input type="submit" value="Borrar usuario" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
+                                <input type="submit" value="Borrar Oficina" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
 
                             </div>
                         </div>
@@ -93,7 +93,7 @@
            // rIndex = this.rowIndex;
            // alert(this.cells[0].innerHTML);
            //alert("Borrar");
-            $("#modalB").modal('show');
+            $("#modalC").modal('show');
         };
     }
 
