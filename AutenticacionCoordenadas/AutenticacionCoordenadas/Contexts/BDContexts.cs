@@ -1,4 +1,4 @@
-﻿using AutenticacionCoordenadas.Entities;
+﻿using AutenticacionCoordenadas.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace AutenticacionCoordenadas.Contexts
 {
-    public class OficinaBD : DbContext
+    public class BDContexts : DbContext
     {
-        public OficinaBD(DbContextOptions<OficinaBD> options) : base(options) 
+        public BDContexts(DbContextOptions<BDContexts> options) : base(options) 
         {
         
         }
         public DbSet<Oficina> tb_Oficina { get; set; }
+        public DbSet<Usuario> tb_Usuario { get; set; }
     }
 }
