@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AutenticacionCoordenadas.Entities
+namespace AutenticacionCoordenadas.Models
 {
     public class Oficina
     {
