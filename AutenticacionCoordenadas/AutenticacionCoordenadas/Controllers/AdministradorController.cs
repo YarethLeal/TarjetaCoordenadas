@@ -1,5 +1,7 @@
 ﻿using AutenticacionCoordenadas.Contexts;
+using AutenticacionCoordenadas.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -61,68 +63,178 @@ namespace AutenticacionCoordenadas.Controllers
         {
             return View();
         }
-        //// GET: /<ValuesController>
-        //[HttpGet]
-        //public IEnumerable<Usuario> Get()
-        //{
-        //    //return new String[] {"hola", "todos" };
-        //  return context.TB_USUARIO.ToList();
-        //}
 
-        //// GET /<ValuesController>/5
-        //[HttpGet("{cedula}")]
-        //public Usuario Get(int cedula)
-        //{
-        //    var usuario = context.TB_USUARIO.FirstOrDefault(u=> u.cedula == cedula);
-        //    return usuario;
-        //}
+        [HttpGet]
+        public async Task<ActionResult<List<Usuario>>> ObtenerUsuarios()
+        {
+            return await _context.tb_Usuario.ToListAsync();
+        }
 
-        //// POST /<ValuesController> 'ingresos'
-        //[HttpPost]
-        //public ActionResult Post([FromBody] Usuario usuario)
-        //{
-        //    try {
-        //        context.TB_USUARIO.Add(usuario);
-        //        context.SaveChanges();
-        //        return Ok();
-        //    }
-        //    catch (Exception ex) 
-        //    {
-        //        return BadRequest();
-        //    }
-        //}
 
-        //// PUT (Actulizar) /<ValuesController>/5
-        //[HttpPut("{cedula}")]
-        //public ActionResult Put(int cedula, [FromBody] Usuario usuario)
-        //{
-        //    if (usuario.cedula == cedula)
-        //    {
-        //        context.Entry(usuario).State = EntityState.Modified;
-        //        context.SaveChanges();
-        //        return Ok();
-        //    }
-        //    else 
-        //    {
-        //        return BadRequest();
-        //    }
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegistrarUsuario(Usuario usuarioRegistrar)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.tb_Usuario.Add(usuarioRegistrar);
+                    await _context.SaveChangesAsync();
+                   // return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "No se pueden guardar los cambios. " +
+                       "Vuelve a intentarlo y, si el problema persiste, " +
+                       "consulte con el administrador del sistema.");
+            }
+            return Ok();
+            //return View(usuario);
+        }
 
-        //// DELETE api/<ValuesController>/5
-        //[HttpDelete("{cedula}")]
-        //public ActionResult Delete(int cedula)
-        //{
-        //    var usuario = context.TB_USUARIO.FirstOrDefault(u => u.cedula == cedula);
-        //    if (usuario != null)
-        //    {
-        //        context.TB_USUARIO.Remove(usuario);
-        //        context.SaveChanges();
-        //        return Ok();
-        //    }
-        //    else
-        //    {
-        //        return BadRequest();
-        //    }
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ActualizarUsuario(int id, Usuario usuarioAct)
+        {
+            if (id != usuarioAct.Id)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.tb_Usuario.Update(usuarioAct);
+                    await _context.SaveChangesAsync();
+                    //return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "No se pueden guardar los cambios. " +
+                        "Vuelve a intentarlo y, si el problema persiste, " +
+                        "consulte con el administrador del sistema.");
+                }
+            }
+            return Ok();
+            //return View(usuarioAct);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarUsuario(int id)
+        {
+            var usuario = await _context.tb_Usuario.FindAsync(id);
+            if (usuario == null)
+            {
+               // return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                _context.tb_Usuario.Remove(usuario);
+                await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.)
+                ModelState.AddModelError("", "No se puede eliminar. " +
+                     "Vuelve a intentarlo y, si el problema persiste, " +
+                     "consulte con el administrador del sistema.");
+            }
+            return Ok();
+        }
+
+        //Oficina
+
+        [HttpGet]
+        public async Task<ActionResult<List<Oficina>>> ObtenerOficinas()
+        {
+            return await _context.tb_Oficina.ToListAsync();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegistrarOficina(Oficina oficinaRegistrar)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.tb_Oficina.Add(oficinaRegistrar);
+                    await _context.SaveChangesAsync();
+                    // return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "No se pueden guardar los cambios. " +
+                       "Vuelve a intentarlo y, si el problema persiste, " +
+                       "consulte con el administrador del sistema.");
+            }
+            return Ok();
+            //return View(usuario);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ActualizarOficina(int id, Oficina oficinaAct)
+        {
+            if (id != oficinaAct.Id)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.tb_Oficina.Update(oficinaAct);
+                    await _context.SaveChangesAsync();
+                    //return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "No se pueden guardar los cambios. " +
+                        "Vuelve a intentarlo y, si el problema persiste, " +
+                        "consulte con el administrador del sistema.");
+                }
+            }
+            return Ok();
+            //return View(usuarioAct);
+        }
+
+        [HttpPost, ActionName("DeleteOffice")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarOficina(int id)
+        {
+            var oficina = await _context.tb_Oficina.FindAsync(id);
+            if (oficina == null)
+            {
+                // return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                _context.tb_Oficina.Remove(oficina);
+                await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.)
+                ModelState.AddModelError("", "No se puede eliminar. " +
+                     "Vuelve a intentarlo y, si el problema persiste, " +
+                     "consulte con el administrador del sistema.");
+            }
+            return Ok();
+        }
+
     }
 }
