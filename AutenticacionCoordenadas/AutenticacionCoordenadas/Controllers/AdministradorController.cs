@@ -15,10 +15,10 @@ namespace AutenticacionCoordenadas.Controllers
         public IConfiguration Configuration { get; }
         private readonly BDContexts _context;
 
-        public AdministradorController(BDContexts context)
-        {
-            _context = context;
-        }
+        //public AdministradorController(BDContexts context)
+        //{
+        //    _context = context;
+        //}
         public AdministradorController(IConfiguration configuration)
         {
             Configuration = configuration;
