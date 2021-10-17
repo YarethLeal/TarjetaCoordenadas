@@ -1482,6 +1482,32 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "AUTCoordenadasAccesoADatos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.10"
+        },
+        "compile": {
+          "bin/placeholder/AUTCoordenadasAccesoADatos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AUTCoordenadasAccesoADatos.dll": {}
+        }
+      },
+      "AUTCoordenadasReglasDeNegocio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "AUTCoordenadasAccesoADatos": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AUTCoordenadasReglasDeNegocio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AUTCoordenadasReglasDeNegocio.dll": {}
+        }
       }
     }
   },
@@ -5694,10 +5720,21 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "AUTCoordenadasAccesoADatos/1.0.0": {
+      "type": "project",
+      "path": "../AUTCoordenadasAccesoADatos/AUTCoordenadasAccesoADatos.csproj",
+      "msbuildProject": "../AUTCoordenadasAccesoADatos/AUTCoordenadasAccesoADatos.csproj"
+    },
+    "AUTCoordenadasReglasDeNegocio/1.0.0": {
+      "type": "project",
+      "path": "../AUTCoordenadasReglasDeNegocio/AUTCoordenadasReglasDeNegocio.csproj",
+      "msbuildProject": "../AUTCoordenadasReglasDeNegocio/AUTCoordenadasReglasDeNegocio.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AUTCoordenadasReglasDeNegocio >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10"
     ]
@@ -5728,7 +5765,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj": {
+              "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
