@@ -8,3 +8,6 @@ C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoor
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\bin\Debug\netcoreapp3.1\AUTCoordenadasReglasDeNegocio.pdb
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\obj\Debug\netcoreapp3.1\AUTCoordenadasReglasDeNegocio.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\obj\Debug\netcoreapp3.1\AUTCoordenadasReglasDeNegocio.pdb
+C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll
+C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.pdb
+C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\obj\Debug\netcoreapp3.1\AUTCoordenadasReglasDeNegocio.csproj.CopyComplete

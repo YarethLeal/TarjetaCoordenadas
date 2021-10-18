@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutenticacionCoordenadas", "AutenticacionCoordenadas\AutenticacionCoordenadas.csproj", "{2C7DF02B-0A10-4FC0-81FC-A543B8D67318}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68F09B93-188C-4063-9920-438FDA131F15} = {68F09B93-188C-4063-9920-438FDA131F15}
+		{1B3040DB-601B-41BB-AE7A-087BEE77EF65} = {1B3040DB-601B-41BB-AE7A-087BEE77EF65}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AUTCoordenadasReglasDeNegocio", "AUTCoordenadasReglasDeNegocio\AUTCoordenadasReglasDeNegocio.csproj", "{CC3886EB-B9B8-4DBF-9209-5223B1E0A1DA}"
 EndProject
