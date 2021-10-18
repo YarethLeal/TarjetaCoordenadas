@@ -528,19 +528,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\Yareth\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
       "projectName": "AUTCoordenadasAccesoDatos",
-      "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\obj\\",
+      "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
+      "packagesPath": "C:\\Users\\Yareth\\.nuget\\packages\\",
+      "outputPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Yareth\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -586,7 +586,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
       }
     }
   }

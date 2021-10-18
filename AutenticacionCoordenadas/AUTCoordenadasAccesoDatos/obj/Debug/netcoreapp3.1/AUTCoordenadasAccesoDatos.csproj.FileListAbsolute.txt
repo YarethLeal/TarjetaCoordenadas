@@ -7,3 +7,12 @@ C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoor
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.csproj.CoreCompileInputs.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.pdb
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.AssemblyInfoInputs.cache
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.AssemblyInfo.cs
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.pdb
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.deps.json
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.pdb
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.csprojAssemblyReference.cache

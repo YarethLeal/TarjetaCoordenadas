@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj": {}
+    "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj": {
+    "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
         "projectName": "AUTCoordenadasAccesoDatos",
-        "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\obj\\",
+        "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
+        "packagesPath": "C:\\Users\\Yareth\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Yareth\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,21 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj": {
+    "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj",
         "projectName": "AUTCoordenadasReglasDeNegocio",
-        "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\obj\\",
+        "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj",
+        "packagesPath": "C:\\Users\\Yareth\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Yareth\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +88,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj"
+              "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj": {
+                "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj"
               }
             }
           }
@@ -118,21 +118,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj": {
+    "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
         "projectName": "AutenticacionCoordenadas",
-        "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\obj\\",
+        "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
+        "packagesPath": "C:\\Users\\Yareth\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Yareth\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,11 +146,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj"
+              "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj": {
+                "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj"
               },
-              "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj": {
-                "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj"
+              "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj": {
+                "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj"
               }
             }
           }
@@ -192,7 +192,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
         }
       }
     }

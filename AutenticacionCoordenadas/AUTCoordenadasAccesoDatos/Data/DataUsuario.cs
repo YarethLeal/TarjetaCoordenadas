@@ -8,15 +8,19 @@ using System.Threading.Tasks;
 
 namespace AUTCoordenadasAccesoADatos.Data
 {
-    class DataUsuario
+    public class DataUsuario
     {
         private readonly BDContexts _context;
+
+
+        public DataUsuario()
+        {
+        }
 
         public DataUsuario(BDContexts context)
         {
             _context = context;
         }
-
 
         public async Task<List<Usuario>> ObtenerUsuarios()
         {
@@ -37,7 +41,7 @@ namespace AUTCoordenadasAccesoADatos.Data
                 //Log the error (uncomment ex variable name and write a log.
                 return "No se pueden guardar los cambios. " +
                        "Vuelve a intentarlo y, si el problema persiste, " +
-                       "consulte con el administrador del sistema.");
+                       "consulte con el administrador del sistema.";
             }
             return "Usuario registrado";
         }
@@ -59,7 +63,7 @@ namespace AUTCoordenadasAccesoADatos.Data
                 //Log the error (uncomment ex variable name and write a log.)
                 return "No se pueden guardar los cambios. " +
                     "Vuelve a intentarlo y, si el problema persiste, " +
-                    "consulte con el administrador del sistema.");
+                    "consulte con el administrador del sistema.";
             }
             return "Usuario actualizado";
         }
@@ -83,7 +87,7 @@ namespace AUTCoordenadasAccesoADatos.Data
                 //Log the error (uncomment ex variable name and write a log.)
                 return "No se puede eliminar. " +
                      "Vuelve a intentarlo y, si el problema persiste, " +
-                     "consulte con el administrador del sistema.");
+                     "consulte con el administrador del sistema.";
             }
             return "Usuario eliminado con exito";
         }
