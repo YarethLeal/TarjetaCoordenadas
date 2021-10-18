@@ -7,3 +7,4 @@ C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoor
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.csproj.CoreCompileInputs.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.pdb
+C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.csproj.AssemblyReference.cache
