@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AUTCoordenadasAccesoADatos.Data
 {
-    class DataOficina
+    public class DataOficina
     {
         private readonly BDContexts _context;
 
@@ -17,8 +17,12 @@ namespace AUTCoordenadasAccesoADatos.Data
         {
             _context = context;
         }
+        public DataOficina()
+        {
+          
+        }
 
-                
+
         public async Task<List<Oficina>> ObtenerOficinas()
         {
             return await _context.tb_Oficina.ToListAsync();
