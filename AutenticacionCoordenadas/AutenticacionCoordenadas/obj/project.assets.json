@@ -1483,25 +1483,9 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "AUTCoordenadasAccesoADatos/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.10"
-        },
-        "compile": {
-          "bin/placeholder/AUTCoordenadasAccesoADatos.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/AUTCoordenadasAccesoADatos.dll": {}
-        }
-      },
       "AUTCoordenadasReglasDeNegocio/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "AUTCoordenadasAccesoADatos": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/AUTCoordenadasReglasDeNegocio.dll": {}
         },
@@ -5720,11 +5704,6 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "AUTCoordenadasAccesoADatos/1.0.0": {
-      "type": "project",
-      "path": "../AUTCoordenadasAccesoADatos/AUTCoordenadasAccesoADatos.csproj",
-      "msbuildProject": "../AUTCoordenadasAccesoADatos/AUTCoordenadasAccesoADatos.csproj"
     },
     "AUTCoordenadasReglasDeNegocio/1.0.0": {
       "type": "project",

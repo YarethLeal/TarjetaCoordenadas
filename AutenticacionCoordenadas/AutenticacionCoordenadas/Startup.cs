@@ -1,4 +1,4 @@
-using AutenticacionCoordenadas.Contexts;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
