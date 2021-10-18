@@ -6,7 +6,6 @@ C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoor
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\bin\Debug\netcoreapp3.1\AUTCoordenadasAPI.runtimeconfig.dev.json
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\bin\Debug\netcoreapp3.1\AUTCoordenadasAPI.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\bin\Debug\netcoreapp3.1\AUTCoordenadasAPI.pdb
-C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.csproj.AssemblyReference.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.AssemblyInfoInputs.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.AssemblyInfo.cs
@@ -19,3 +18,4 @@ C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoor
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.pdb
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.genruntimeconfig.cache
+C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAPI\obj\Debug\netcoreapp3.1\AUTCoordenadasAPI.csproj.AssemblyReference.cache

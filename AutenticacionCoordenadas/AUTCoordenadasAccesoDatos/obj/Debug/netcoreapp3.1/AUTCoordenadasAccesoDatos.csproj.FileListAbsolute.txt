@@ -1,7 +1,6 @@
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.deps.json
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.pdb
-C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.csproj.AssemblyReference.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.AssemblyInfoInputs.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.AssemblyInfo.cs
