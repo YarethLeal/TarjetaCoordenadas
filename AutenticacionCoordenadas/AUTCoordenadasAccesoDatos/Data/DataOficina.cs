@@ -1,107 +1,98 @@
 ﻿
+using AUTCoordenadasAccesoADatos.Contexts;
+using AUTCoordenadasAccesoADatos.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AUTCoordenadasAccesoADatos.Data
 {
     class DataOficina
     {
-        //private readonly BDContexts _context;
+        private readonly BDContexts _context;
 
-        //public DataOficina(BDContexts context)
-        //{
-        //    _context = context;
-        //}
+        public DataOficina(BDContexts context)
+        {
+            _context = context;
+        }
 
-
-
-        ////Oficina
-
-        //[HttpGet]
-        //public async Task<ActionResult<List<Oficina>>> ObtenerOficinas()
-        //{
-        //    return await _context.tb_Oficina.ToListAsync();
-        //}
+                
+        public async Task<List<Oficina>> ObtenerOficinas()
+        {
+            return await _context.tb_Oficina.ToListAsync();
+        }
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> RegistrarOficina(Oficina oficinaRegistrar)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            _context.tb_Oficina.Add(oficinaRegistrar);
-        //            await _context.SaveChangesAsync();
-        //            // return RedirectToAction(nameof(Index));
-        //        }
-        //    }
-        //    catch (DbUpdateException /* ex */)
-        //    {
-        //        //Log the error (uncomment ex variable name and write a log.
-        //        ModelState.AddModelError("", "No se pueden guardar los cambios. " +
-        //               "Vuelve a intentarlo y, si el problema persiste, " +
-        //               "consulte con el administrador del sistema.");
-        //    }
-        //    return Ok();
-        //    //return View(usuario);
-        //}
+        public async Task<String> RegistrarOficina(Oficina oficinaRegistrar)
+        {
+            try
+            {
+                   _context.tb_Oficina.Add(oficinaRegistrar);
+                    await _context.SaveChangesAsync();
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> ActualizarOficina(int id, Oficina oficinaAct)
-        //{
-        //    if (id != oficinaAct.Id)
-        //    {
-        //        return NotFound();
-        //    }
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.tb_Oficina.Update(oficinaAct);
-        //            await _context.SaveChangesAsync();
-        //            //return RedirectToAction(nameof(Index));
-        //        }
-        //        catch (DbUpdateException /* ex */)
-        //        {
-        //            //Log the error (uncomment ex variable name and write a log.)
-        //            ModelState.AddModelError("", "No se pueden guardar los cambios. " +
-        //                "Vuelve a intentarlo y, si el problema persiste, " +
-        //                "consulte con el administrador del sistema.");
-        //        }
-        //    }
-        //    return Ok();
-        //    //return View(usuarioAct);
-        //}
+                
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                
+              return "No se pueden guardar los cambios. " +
+                       "Vuelve a intentarlo y, si el problema persiste, " +
+                       "consulte con el administrador del sistema.";
+            }
+            return "Oficina Registrada";
+            
+        }
 
-        //[HttpPost, ActionName("DeleteOffice")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> EliminarOficina(int id)
-        //{
-        //    var oficina = await _context.tb_Oficina.FindAsync(id);
-        //    if (oficina == null)
-        //    {
-        //        // return RedirectToAction(nameof(Index));
-        //    }
+       
+        public async Task<String> ActualizarOficina(int id, Oficina oficinaAct)
+        {
+            if (id != oficinaAct.Id)
+            {
+                return "Oficina no enconttrada";
+            }
 
-        //    try
-        //    {
-        //        _context.tb_Oficina.Remove(oficina);
-        //        await _context.SaveChangesAsync();
-        //        //return RedirectToAction(nameof(Index));
-        //    }
-        //    catch (DbUpdateException /* ex */)
-        //    {
-        //        //Log the error (uncomment ex variable name and write a log.)
-        //        ModelState.AddModelError("", "No se puede eliminar. " +
-        //             "Vuelve a intentarlo y, si el problema persiste, " +
-        //             "consulte con el administrador del sistema.");
-        //    }
-        //    return Ok();
-        //}
+            try
+            {
+                _context.tb_Oficina.Update(oficinaAct);
+                await _context.SaveChangesAsync();
+                
+            }
+            catch (DbUpdateException /* ex */)
+            {
+               
+                return "No se pueden guardar los cambios. " +
+                    "Vuelve a intentarlo y, si el problema persiste, " +
+                    "consulte con el administrador del sistema.";
+            }
+            return "Oficina Actualizada";
+           
+        }
+
+       
+        public async Task<String> EliminarOficina(int id)
+        {
+            var oficina = await _context.tb_Oficina.FindAsync(id);
+            if (oficina == null)
+            {
+                // return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                _context.tb_Oficina.Remove(oficina);
+                await _context.SaveChangesAsync();
+              
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                return "No se puede eliminar. " +
+                     "Vuelve a intentarlo y, si el problema persiste, " +
+                     "consulte con el administrador del sistema.";
+            }
+            return "Oficina Eliminada";
+        }
 
     }
 }
