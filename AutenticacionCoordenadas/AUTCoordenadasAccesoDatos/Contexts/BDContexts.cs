@@ -1,5 +1,4 @@
 ﻿using AUTCoordenadasEntities.Entities;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace AUTCoordenadasAccesoADatos.Contexts
 {
-    public partial class BaseDContexts : DbContext
+    public partial class BDContexts :DbContext
     {
-        public BaseDContexts() 
+        public BDContexts() 
             : base("name=BDContexts")
         {
 
