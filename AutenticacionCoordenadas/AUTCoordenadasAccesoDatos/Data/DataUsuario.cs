@@ -10,23 +10,12 @@ namespace AUTCoordenadasAccesoADatos.Data
 {
     public class DataUsuario
     {
-        private readonly BaseDContexts _context;
-
-        public DataUsuario(BaseDContexts context)
-        {
-            _context = context;
-        }
-
-        public DataUsuario()
-        {
-
-            
-        }
-
-
+       
         public async Task<List<Usuario>> ObtenerUsuarios()
         {
-            return await _context.tb_Usuario.ToListAsync();
+           
+                return await _context.tb_Usuario.ToListAsync();
+           
         }
 
 
