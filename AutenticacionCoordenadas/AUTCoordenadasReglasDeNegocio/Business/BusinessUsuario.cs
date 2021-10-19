@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using AUTCoordenadasAccesoADatos.Contexts;
 using AUTCoordenadasAccesoADatos.Data;
 using AUTCoordenadasAccesoADatos.Entities;
 
 namespace AUTCoordenadasReglasDeNegocio.Business
 {
-    class BusinessUsuario
+    public class BusinessUsuario
     {
         public DataUsuario _user;
-        public BusinessUsuario()
+        public BusinessUsuario(BaseDContexts _context)
         {
-            _user = new DataUsuario();
+            _user = new DataUsuario(_context);
         }
 
         public async Task<List<Usuario>> ListaUsuarios()
@@ -34,5 +35,6 @@ namespace AUTCoordenadasReglasDeNegocio.Business
         {
             return await _user.EliminarUsuario(id);
         }
+
     }
 }

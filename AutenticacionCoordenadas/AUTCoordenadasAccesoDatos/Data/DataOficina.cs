@@ -1,6 +1,6 @@
 ﻿
 using AUTCoordenadasAccesoADatos.Contexts;
-using AUTCoordenadasAccesoADatos.Entities;
+using AUTCoordenadasEntities.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,9 +11,9 @@ namespace AUTCoordenadasAccesoADatos.Data
 {
     public class DataOficina
     {
-        private readonly BDContexts _context;
+        private readonly BaseDContexts _context;
 
-        public DataOficina(BDContexts context)
+        public DataOficina(BaseDContexts context)
         {
             _context = context;
         }
