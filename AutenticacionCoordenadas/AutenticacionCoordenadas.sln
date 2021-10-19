@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AUTCoordenadasReglasDeNegoc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AUTCoordenadasAPI", "AUTCoordenadasAPI\AUTCoordenadasAPI.csproj", "{1B3040DB-601B-41BB-AE7A-087BEE77EF65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUTCoordenadasAccesoDatos", "AUTCoordenadasAccesoDatos\AUTCoordenadasAccesoDatos.csproj", "{68F09B93-188C-4063-9920-438FDA131F15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AUTCoordenadasAccesoDatos", "AUTCoordenadasAccesoDatos\AUTCoordenadasAccesoDatos.csproj", "{68F09B93-188C-4063-9920-438FDA131F15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUTCoordenadasEntities", "AUTCoordenadasEntities\AUTCoordenadasEntities.csproj", "{342A521F-8234-472C-B5B9-378D13388154}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{68F09B93-188C-4063-9920-438FDA131F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68F09B93-188C-4063-9920-438FDA131F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68F09B93-188C-4063-9920-438FDA131F15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{342A521F-8234-472C-B5B9-378D13388154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{342A521F-8234-472C-B5B9-378D13388154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{342A521F-8234-472C-B5B9-378D13388154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{342A521F-8234-472C-B5B9-378D13388154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

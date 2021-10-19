@@ -1,5 +1,5 @@
 ﻿using AUTCoordenadasAccesoADatos.Contexts;
-using AUTCoordenadasAccesoADatos.Entities;
+using AUTCoordenadasEntities.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,15 +10,17 @@ namespace AUTCoordenadasAccesoADatos.Data
 {
     public class DataUsuario
     {
-        private readonly BDContexts _context;
+        private readonly BaseDContexts _context;
 
-        public DataUsuario(BDContexts context)
+        public DataUsuario(BaseDContexts context)
         {
             _context = context;
         }
 
         public DataUsuario()
         {
+
+            
         }
 
 

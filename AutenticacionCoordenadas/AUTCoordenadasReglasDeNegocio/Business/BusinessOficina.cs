@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using AUTCoordenadasAccesoADatos.Data;
-using AUTCoordenadasAccesoADatos.Entities;
+using AUTCoordenadasEntities.Entities;
 
 namespace AUTCoordenadasReglasDeNegocio.Business
 {
-    class BusinessOficina
+    public class BusinessOficina
     {
         private DataOficina oficina;
 
-        public BusinessOficina()
+        public BusinessOficina(BaseDContexts _context)
         {
             oficina = new DataOficina();
         }

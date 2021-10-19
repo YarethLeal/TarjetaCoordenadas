@@ -1,5 +1,5 @@
-﻿
-using AutenticacionCoordenadas.Models;
+﻿using AUTCoordenadasReglasDeNegocio.Business;
+using AUT
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -7,17 +7,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AUTCoordenadasAccesoADatos.Contexts;
 
 namespace AutenticacionCoordenadas.Controllers
 {
     public class AdministradorController : Controller
     {
         public IConfiguration Configuration { get; }
-        
-        public AdministradorController(IConfiguration configuration)
+        private BusinessUsuario businessUsuario;
+      
+        public AdministradorController(IConfiguration configuration, BaseDContexts context)
         {
+            businessUsuario = new BusinessUsuario(context);
             Configuration = configuration;
+         
         }
+        
 
         public IActionResult Index()
         {
@@ -36,6 +41,15 @@ namespace AutenticacionCoordenadas.Controllers
 
         public IActionResult Registro()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Registro(Usuario usuario)
+        {
+            usuario.NombreUsuario = "Ara";
+            usuario.Correo = "Arasaen";
+            await businessUsuario.RegistrarUsuario(usuario);
             return View();
         }
 

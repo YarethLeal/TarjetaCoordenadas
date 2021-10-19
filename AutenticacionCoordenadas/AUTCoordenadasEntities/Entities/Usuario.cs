@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AutenticacionCoordenadas.Models { 
+namespace AUTCoordenadasEntities.Entities
+{ 
     public class Usuario
     {
         public int Id { get; set; }

@@ -25,7 +25,7 @@ namespace AutenticacionCoordenadas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BDContexts>(options =>
+            services.AddDbContext<BaseDContexts>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
 
               services.AddControllersWithViews();
