@@ -1,42 +1,43 @@
 ﻿
 using AUTCoordenadasAccesoADatos.Contexts;
 using AUTCoordenadasEntities.Entities;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 
 namespace AUTCoordenadasAccesoADatos.Data
 {
     public class DataOficina
     {
-        private readonly BaseDContexts _context;
-
-        public DataOficina(BaseDContexts context)
-        {
-            _context = context;
-        }
-        public DataOficina()
-        {
-          
-        }
-
-
+              
         public async Task<List<Oficina>> ObtenerOficinas()
         {
-            return await _context.tb_Oficina.ToListAsync();
+            using (var _context = new BDContexts())
+            {
+                return await _context.tb_Oficina.ToListAsync();
+            }
         }
 
-
+        public async Task<Oficina> ObtenerOficina(int id)
+        {
+            using (var _context = new BDContexts())
+            {
+              return await _context.tb_Oficina.FindAsync(id);
+            }
+        }
         public async Task<String> RegistrarOficina(Oficina oficinaRegistrar)
         {
             try
             {
-                   _context.tb_Oficina.Add(oficinaRegistrar);
+                using (var _context = new BDContexts())
+                {
+                    _context.tb_Oficina.Add(oficinaRegistrar);
                     await _context.SaveChangesAsync();
 
-                
+                }
             }
             catch (DbUpdateException /* ex */)
             {
@@ -59,9 +60,11 @@ namespace AUTCoordenadasAccesoADatos.Data
 
             try
             {
-                _context.tb_Oficina.Update(oficinaAct);
-                await _context.SaveChangesAsync();
-                
+                using (var _context = new BDContexts())
+                {
+                    _context.Entry(oficinaAct).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
+                }
             }
             catch (DbUpdateException /* ex */)
             {
@@ -74,28 +77,31 @@ namespace AUTCoordenadasAccesoADatos.Data
            
         }
 
-       
+
         public async Task<String> EliminarOficina(int id)
         {
-            var oficina = await _context.tb_Oficina.FindAsync(id);
-            if (oficina == null)
+            using (var _context = new BDContexts())
             {
-                // return RedirectToAction(nameof(Index));
-            }
+                var oficina = await _context.tb_Oficina.FindAsync(id);
+                if (oficina == null)
+                {
+                    // return RedirectToAction(nameof(Index));
+                }
 
-            try
-            {
-                _context.tb_Oficina.Remove(oficina);
-                await _context.SaveChangesAsync();
-              
+                try
+                {
+                    _context.tb_Oficina.Remove(oficina);
+                    await _context.SaveChangesAsync();
+
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    return "No se puede eliminar. " +
+                         "Vuelve a intentarlo y, si el problema persiste, " +
+                         "consulte con el administrador del sistema.";
+                }
+                return "Oficina Eliminada";
             }
-            catch (DbUpdateException /* ex */)
-            {
-                return "No se puede eliminar. " +
-                     "Vuelve a intentarlo y, si el problema persiste, " +
-                     "consulte con el administrador del sistema.";
-            }
-            return "Oficina Eliminada";
         }
 
     }

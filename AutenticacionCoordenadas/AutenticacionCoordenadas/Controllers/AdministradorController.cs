@@ -1,5 +1,5 @@
-﻿using AUTCoordenadasReglasDeNegocio.Business;
-using AUT
+﻿using AUTCoordenadasEntities.Entities;
+using AUTCoordenadasReglasDeNegocio.Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AUTCoordenadasAccesoADatos.Contexts;
+
 
 namespace AutenticacionCoordenadas.Controllers
 {
@@ -15,10 +15,13 @@ namespace AutenticacionCoordenadas.Controllers
     {
         public IConfiguration Configuration { get; }
         private BusinessUsuario businessUsuario;
+        private BusinessOficina businessOficina;
+
       
-        public AdministradorController(IConfiguration configuration, BaseDContexts context)
+        public AdministradorController(IConfiguration configuration)
         {
-            businessUsuario = new BusinessUsuario(context);
+            businessUsuario = new BusinessUsuario();
+            businessOficina = new BusinessOficina();
             Configuration = configuration;
          
         }
@@ -70,6 +73,7 @@ namespace AutenticacionCoordenadas.Controllers
 
         public IActionResult RegistroOficina()
         {
+
             return View();
         }
 
