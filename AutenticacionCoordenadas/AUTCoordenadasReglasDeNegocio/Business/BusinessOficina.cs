@@ -11,7 +11,7 @@ namespace AUTCoordenadasReglasDeNegocio.Business
     {
         private DataOficina oficina;
 
-        public BusinessOficina(BaseDContexts _context)
+        public BusinessOficina()
         {
             oficina = new DataOficina();
         }
@@ -22,7 +22,11 @@ namespace AUTCoordenadasReglasDeNegocio.Business
             return await oficina.ObtenerOficinas();
         }
 
-
+        public async Task<Oficina> ObtenerOficina(int id)
+        {
+        return await oficina.ObtenerOficina(id);
+            
+        }
         public async Task<String> RegistrarOficina(Oficina oficinaRegistrar)
         {
             return await oficina.RegistrarOficina(oficinaRegistrar);

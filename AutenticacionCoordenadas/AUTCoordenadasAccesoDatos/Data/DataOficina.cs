@@ -21,7 +21,13 @@ namespace AUTCoordenadasAccesoADatos.Data
             }
         }
 
-
+        public async Task<Oficina> ObtenerOficina(int id)
+        {
+            using (var _context = new BDContexts())
+            {
+              return await _context.tb_Oficina.FindAsync(id);
+            }
+        }
         public async Task<String> RegistrarOficina(Oficina oficinaRegistrar)
         {
             try
