@@ -52,7 +52,7 @@ namespace AutenticacionCoordenadas.Controllers
         {
             usuario.NombreUsuario = "Ara";
             usuario.Correo = "Arasaen";
-            await businessUsuario.RegistrarUsuario(usuario);
+            await businessUsuario.Registrar(usuario);
             return View();
         }
 
