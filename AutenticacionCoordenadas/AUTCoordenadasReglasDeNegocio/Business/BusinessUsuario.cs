@@ -2,39 +2,37 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using AUTCoordenadasAccesoADatos.Contexts;
 using AUTCoordenadasAccesoADatos.Data;
-using AUTCoordenadasAccesoADatos.Entities;
-
+using AUTCoordenadasEntities.Entities;
 namespace AUTCoordenadasReglasDeNegocio.Business
 {
     public class BusinessUsuario
     {
-        public DataUsuario _user;
-        public BusinessUsuario(BaseDContexts _context)
+        private static DataUsuario _dUser = new DataUsuario();
+
+        public async Task<String> Registrar(Usuario usuario)
         {
-            _user = new DataUsuario(_context);
+            return await _dUser.Registrar(usuario);
         }
 
         public async Task<List<Usuario>> ListaUsuarios()
         {
-            return await _user.ObtenerUsuarios();
+            return await _dUser.ListaUsuarios();
         }
 
-        public async Task<String> RegistrarUsuario(Usuario usuarioRegistrar)
+        public async Task<String> ActualizarUsuario(int id, Usuario usuario)
         {
-            return await _user.RegistrarUsuario(usuarioRegistrar);
-        }
-
-        public async Task<String> ActualizarUsuario(int id, Usuario usuarioAct)
-        {
-            return await _user.ActualizarUsuario(id, usuarioAct);
+            return await _dUser.Actualizar(id, usuario);
         }
 
         public async Task<String> EliminarUsuario(int id)
         {
-            return await _user.EliminarUsuario(id);
+            return await _dUser.Eliminar(id);
         }
 
+        public async Task<Usuario> BuscarUsuario(int id)
+        {
+            return await _dUser.Buscar(id);
+        }
     }
 }
