@@ -23,4 +23,3 @@ D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAc
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.pdb
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\obj\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.genruntimeconfig.cache
-D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasAccesoDatos\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll.config

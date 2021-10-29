@@ -4,8 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace AUTCoordenadasAccesoADatos.Data
 {
@@ -13,20 +12,24 @@ namespace AUTCoordenadasAccesoADatos.Data
     {
         public async Task<String> Registrar(Usuario usuario)
         {
-            try
+            System.Diagnostics.Debug.WriteLine("Debug Data");
+            using (var _context = new BDContexts())
             {
-                using (var _context = new BDContexts())
-                {
+                try
+            {
+                    Console.WriteLine("Llega a DATA");
                     _context.tb_Usuario.Add(usuario);
                     await _context.SaveChangesAsync();
-                }
+               
             }
-            catch (DbUpdateException /* ex */)
+            catch (DbUpdateException  e/* ex */)
             {
-                //Log the error (uncomment ex variable name and write a log.
-                return "No se pueden guardar los cambios. " +
+                    System.Diagnostics.Debug.WriteLine(e.ToString());
+                    //Log the error (uncomment ex variable name and write a log.
+                    return "No se pueden guardar los cambios. " +
                        "Vuelve a intentarlo y, si el problema persiste, " +
                        "consulte con el administrador del sistema.";
+                }
             }
             return "Usuario registrado";
         }

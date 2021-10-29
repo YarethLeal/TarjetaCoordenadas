@@ -23,7 +23,6 @@ namespace AutenticacionCoordenadas.Controllers
             businessUsuario = new BusinessUsuario();
             businessOficina = new BusinessOficina();
             Configuration = configuration;
-         
         }
         
 
@@ -48,11 +47,16 @@ namespace AutenticacionCoordenadas.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Registro(Usuario usuario)
+        public async Task<IActionResult> Registro(Usuario usuarioParam)
         {
-            usuario.NombreUsuario = "Ara";
-            usuario.Correo = "Arasaen";
-            await businessUsuario.Registrar(usuario);
+            System.Diagnostics.Debug.WriteLine("Debug Controlador");
+            System.Diagnostics.Debug.WriteLine(usuarioParam.OficinaID);
+            usuarioParam.FechaActualiza = DateTime.Today;
+            usuarioParam.Observaciones = "ninguna";
+            usuarioParam.UsuarioActualiza = "admin";
+            usuarioParam.CantidadIntentosAcceso = 1;
+            usuarioParam.TipoUsuario = 'u';
+            await businessUsuario.Registrar(usuarioParam);
             return View();
         }
 

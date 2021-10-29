@@ -28,4 +28,3 @@ D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasRe
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\obj\Debug\netcoreapp3.1\AUTCoordenadasReglasDeNegocio.dll
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\obj\Debug\netcoreapp3.1\AUTCoordenadasReglasDeNegocio.pdb
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\obj\Debug\netcoreapp3.1\AUTCoordenadasReglasDeNegocio.genruntimeconfig.cache
-D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasReglasDeNegocio\bin\Debug\netcoreapp3.1\AUTCoordenadasAccesoDatos.dll.config

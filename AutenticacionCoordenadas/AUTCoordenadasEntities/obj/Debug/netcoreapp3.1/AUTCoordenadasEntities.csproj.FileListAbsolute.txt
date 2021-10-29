@@ -15,3 +15,4 @@ D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasEn
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasEntities\obj\Debug\netcoreapp3.1\AUTCoordenadasEntities.csproj.CoreCompileInputs.cache
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasEntities\obj\Debug\netcoreapp3.1\AUTCoordenadasEntities.dll
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasEntities\obj\Debug\netcoreapp3.1\AUTCoordenadasEntities.pdb
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AUTCoordenadasEntities\obj\Debug\netcoreapp3.1\AUTCoordenadasEntities.csprojAssemblyReference.cache
