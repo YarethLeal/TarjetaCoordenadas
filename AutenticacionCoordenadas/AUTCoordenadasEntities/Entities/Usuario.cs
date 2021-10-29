@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace AUTCoordenadasEntities.Entities
 { 
     public class Usuario
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string usuario { get; set; }
         public string Identificacion { get; set; }
@@ -25,8 +27,7 @@ namespace AUTCoordenadasEntities.Entities
         public int InstitucionID { get; set; }
         public int OficinaID { get; set; }
         public bool Activo { get; set; }
-
-
+        public string Contrasena { get; set; }
 
     }
 

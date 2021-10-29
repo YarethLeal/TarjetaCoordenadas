@@ -12,6 +12,7 @@ namespace AUTCoordenadasReglasDeNegocio.Business
 
         public async Task<String> Registrar(Usuario usuario)
         {
+            System.Diagnostics.Debug.WriteLine("Debug Business");
             return await _dUser.Registrar(usuario);
         }
 
