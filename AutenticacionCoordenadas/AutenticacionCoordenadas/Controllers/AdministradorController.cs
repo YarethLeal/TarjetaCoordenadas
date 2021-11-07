@@ -36,15 +36,38 @@ namespace AutenticacionCoordenadas.Controllers
             return View();
         }
 
-        public IActionResult Buscar()
+        public async Task<IActionResult> Buscar()
+
+
         {
-            return View();
+
+            var model = await businessUsuario.ListaUsuarios();
+            return View(model);
         }
 
         public IActionResult Registro()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> BuscarUsuarioNombre(string nombre)
+        {
+
+            var model = await businessUsuario.BuscarNombre(nombre);
+
+            return View("Buscar",model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EliminarUsuario(int id)
+        {
+
+            var result = await businessUsuario.EliminarUsuario(id);
+            var model = await businessUsuario.ListaUsuarios();
+            return View("Buscar", model);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Registro(Usuario usuarioParam)

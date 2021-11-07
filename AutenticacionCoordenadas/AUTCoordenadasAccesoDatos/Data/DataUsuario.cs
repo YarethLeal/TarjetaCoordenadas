@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace AUTCoordenadasAccesoADatos.Data
 {
@@ -37,8 +38,9 @@ namespace AUTCoordenadasAccesoADatos.Data
         {
             using (var _context = new BDContexts())
             {
-                return await _context.tb_Usuario.ToListAsync();
+                return  await _context.tb_Usuario.Where(x => x.Eliminado == false).ToListAsync();
             }
+
         }
 
         public async Task<String> Actualizar(int id, Usuario usuario)
@@ -69,34 +71,46 @@ namespace AUTCoordenadasAccesoADatos.Data
         {
             using (var _context = new BDContexts())
             {
-                var usuario = await _context.tb_Usuario.FindAsync(id);
-                if (usuario == null)
+
+
+                var usuario= _context.tb_Usuario.First(a => a.Id == id);
+
+                if (usuario != null)
                 {
+                    usuario.Eliminado = true;
+                    _context.SaveChanges();
                     // return RedirectToAction(nameof(Index));
                 }
+                else {
 
-                try
-                {
-                    _context.tb_Usuario.Remove(usuario);
-                    await _context.SaveChangesAsync();
-                    //return RedirectToAction(nameof(Index));
+
+                    try
+                    {
+                        _context.tb_Usuario.Remove(usuario);
+                        await _context.SaveChangesAsync();
+                        //return RedirectToAction(nameof(Index));
+                    }
+                    catch (DbUpdateException /* ex */)
+                    {
+                        //Log the error (uncomment ex variable name and write a log.)
+                        return "No se puede eliminar. " +
+                             "Vuelve a intentarlo y, si el problema persiste, " +
+                             "consulte con el administrador del sistema.";
+                    }
+
                 }
-                catch (DbUpdateException /* ex */)
-                {
-                    //Log the error (uncomment ex variable name and write a log.)
-                    return "No se puede eliminar. " +
-                         "Vuelve a intentarlo y, si el problema persiste, " +
-                         "consulte con el administrador del sistema.";
-                }
+
+               
             }
             return "Usuario eliminado con exito";
         }
 
-        public async Task<Usuario> Buscar(int id)
+        public async Task<List<Usuario>> BuscarNombre(string nombre)
         {
             using (var _context = new BDContexts())
             {
-                var usuario = await _context.tb_Usuario.FindAsync(id);
+               List< Usuario> usuario = await _context.tb_Usuario.Where(x => x.NombreUsuario == nombre).ToListAsync();
+                
                 if (usuario == null)
                 {
                     return null;
