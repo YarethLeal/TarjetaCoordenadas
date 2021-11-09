@@ -31,9 +31,9 @@ namespace AUTCoordenadasReglasDeNegocio.Business
             return await _dUser.Eliminar(id);
         }
 
-        public async Task<Usuario> BuscarUsuario(int id)
+        public async Task<List<Usuario>> BuscarUsuario(string nombre)
         {
-            return await _dUser.Buscar(id);
+            return await _dUser.BuscarNombre(nombre);
         }
     }
 }
