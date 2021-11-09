@@ -54,7 +54,7 @@ namespace AutenticacionCoordenadas.Controllers
         public async Task<IActionResult> BuscarUsuarioNombre(string nombre)
         {
 
-            var model = await businessUsuario.BuscarNombre(nombre);
+            var model = await businessUsuario.BuscarUsuario(nombre);
 
             return View("Buscar",model);
         }
