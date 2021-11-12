@@ -6,11 +6,59 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Data.SqlClient;
+using System.Data;
+using System.Collections;
 
 namespace AUTCoordenadasAccesoADatos.Data
 {
     public class DataUsuario
     {
+        private SqlConnection sqlConnection;
+        private SqlCommand sqlCommand;
+
+        public DataUsuario()
+        {
+            sqlConnection = new SqlConnection("Data Source=163.178.107.10;Initial Catalog=Sistema_DobleAutenticacion;Persist Security Info=True;User ID=laboratorios;Password=KmZpo.2796;Pooling=False");
+            sqlCommand = new SqlCommand();
+        }
+        public string iniciarSesion(Usuario datosUsuario)
+        {
+            //  List<Tarjeta> listaValida = new List<Tarjeta>();
+            string v = "NULL";
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SP_InicioSesion", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@Usuario", datosUsuario.usuario);
+            sqlCommand.Parameters.AddWithValue("@Contrasena", datosUsuario.Contrasena);
+
+            sqlCommand.ExecuteNonQuery();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Usuario usuario = new Usuario();
+
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    usuario.usuario = itm[0].ToString();
+                    // p.nombre = itm[0].ToString();
+
+                    v = usuario.usuario;
+                    //  listaValida.Add(tarjeta);
+
+                }
+
+            };
+            sqlConnection.Close();
+
+            return v;
+        }
         public async Task<String> Registrar(Usuario usuario)
         {
             System.Diagnostics.Debug.WriteLine("Debug Data");

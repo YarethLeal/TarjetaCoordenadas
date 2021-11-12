@@ -10,6 +10,10 @@ namespace AUTCoordenadasReglasDeNegocio.Business
     {
         private static DataUsuario _dUser = new DataUsuario();
 
+        public string iniciarSesion(Usuario datosUsuario)
+        {
+            return _dUser.iniciarSesion(datosUsuario);
+        }
         public async Task<String> Registrar(Usuario usuario)
         {
             System.Diagnostics.Debug.WriteLine("Debug Business");
