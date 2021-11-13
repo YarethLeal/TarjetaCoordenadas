@@ -5,8 +5,13 @@
 <div class="d-flex justify-content-center btn-group-vertical">
 
     <p style="font-size:34px">¡Tu tarjeta ha sido bloqueada por acumulación de intentos!</p>
- 
-    <input type="submit" value="Pedir desbloqueo" class="btn btn-primary" style="background-color: #005cb9; width: 200px;"/>
+
+    <form asp-controller="Usuario" asp-action="BloqueoD">
+        <input type="submit" value="Pedir desbloqueo" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
+    </form>
+
     <p style="font-size:13px">Revise sus notificaciones para conocer la respuesta</p>
-    
+
+    <img src="/Images/ejemplo.png" alt="">
+
 </div>

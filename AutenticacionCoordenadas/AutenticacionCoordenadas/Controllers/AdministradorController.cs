@@ -31,14 +31,23 @@ namespace AutenticacionCoordenadas.Controllers
             return View();
         }
 
-        public IActionResult Actualiza()
+        public async Task<IActionResult> Actualiza(int IdEdit)
         {
+            var usuario = await businessUsuario.BuscarId(IdEdit);
+            ViewBag.Usuario = usuario;
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> Actualizar(Usuario usuarioParam)
+        {
+            
+            usuarioParam.FechaActualiza = DateTime.Today;
+            await businessUsuario.ActualizarUsuario(usuarioParam);
+            return Redirect("~/Administrador/Buscar");
+        }
+
 
         public async Task<IActionResult> Buscar()
-
-
         {
 
             var model = await businessUsuario.ListaUsuarios();
@@ -60,10 +69,10 @@ namespace AutenticacionCoordenadas.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EliminarUsuario(int id)
+        public async Task<IActionResult> EliminarUsuario(int IdDelete)
         {
 
-            var result = await businessUsuario.EliminarUsuario(id);
+            var result = await businessUsuario.EliminarUsuario(IdDelete);
             var model = await businessUsuario.ListaUsuarios();
             return View("Buscar", model);
         }
@@ -72,17 +81,16 @@ namespace AutenticacionCoordenadas.Controllers
         [HttpPost]
         public async Task<IActionResult> Registro(Usuario usuarioParam)
         {
-            System.Diagnostics.Debug.WriteLine("Debug Controlador");
-            System.Diagnostics.Debug.WriteLine(usuarioParam.OficinaID);
+           
             usuarioParam.FechaActualiza = DateTime.Today;
             usuarioParam.Observaciones = "ninguna";
             usuarioParam.UsuarioActualiza = "admin";
-            usuarioParam.CantidadIntentosAcceso = 1;
+            usuarioParam.CantidadIntentosAcceso = 0;
             usuarioParam.TipoUsuario = 'u';
             await businessUsuario.Registrar(usuarioParam);
             return View();
         }
-
+        
         public IActionResult Solicitud()
         {
             return View();

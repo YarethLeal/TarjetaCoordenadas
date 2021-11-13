@@ -1,8 +1,5 @@
 ﻿@model List<AUTCoordenadasEntities.Entities.Usuario>
 
-
-
-
 <div>
     <a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="float:right">Bienvenido: Usuario</a>
 </div>
@@ -36,8 +33,10 @@
             <tr>
                 <th>Id</th>
                 <th>Identificación</th>
+                <th>Usuario</th>
                 <th>Nombre</th>
                 <th>Primer apellido</th>
+                <th>Correo</th>
                 <th>Oficina</th>
             </tr>
 
@@ -45,9 +44,11 @@
             {
         <tr>
             <td>@usuarios.Id</td>
+            <td>@usuarios.usuario</td>
             <td>@usuarios.Identificacion</td>
             <td>@usuarios.NombreUsuario</td>
             <td>@usuarios.PrimerApellido</td>
+            <td>@usuarios.Correo</td>
             <td>@usuarios.OficinaID</td>
 
         </tr>
@@ -71,15 +72,20 @@
                         <div class="modal-body">
                             <div class="text-center">
                                 <form asp-area="" asp-controller="Administrador" asp-action="Actualiza">
+                                    <div class="form-group w-100">
+                                        <input name="IdEdit" id="IdEdit" class="form-control" readonly />
+                                    </div>
                                     <input type="submit" value="Actualizar usuario" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
                                 </form>
                                 <br />
                                 <form asp-area="" asp-controller="Administrador" asp-action="EliminarUsuario">
-                                   
-                                    
+                                    <div class="form-group w-100">
+                                       <input name="IdDelete" id="IdDelete" class="form-control" readonly />
+                                    </div>
+                                
                                 <input type="submit" value="Borrar usuario" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
                                 </form >
-</div>
+                            </div>
                         </div>
                         <div class="modal-footer">
 
@@ -98,12 +104,11 @@
 
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function () {
-            // rIndex = this.rowIndex;
-            // alert(this.cells[0].innerHTML);
-            //alert("Borrar");
-
-            //obtener el id 
+             //obtener el id 
+            $('#IdEdit').val('' + this.cells[0].innerHTML);
+            $('#IdDelete').val('' + this.cells[0].innerHTML);
             $("#modalB").modal('show');
+           
         };
     }
 

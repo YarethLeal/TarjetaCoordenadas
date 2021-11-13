@@ -168,13 +168,14 @@ namespace AutenticacionCoordenadas.Controllers
             }// else
 
             Tarjeta datosTarjeta = new Tarjeta();
-            datosTarjeta.id = 1;
+            datosTarjeta.id = 12;
             string filaColumna = FilaColumna;
             datosTarjeta.fila = Int32.Parse(filaColumna[1].ToString());
             datosTarjeta.columna = filaColumna[0].ToString();
             datosTarjeta.valor = Int32.Parse(FilaCol);
 
             string resultado = businessTarjeta.autenticar(datosTarjeta);
+            Console.WriteLine(resultado);
             if (resultado == "NULL")
             {
                 salida = 0;
