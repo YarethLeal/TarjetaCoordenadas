@@ -5,7 +5,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\AUTCoordenadasEntities\AUTCoordenadasEntities.csproj" />
 		<ProjectReference Include="..\AUTCoordenadasReglasDeNegocio\AUTCoordenadasReglasDeNegocio.csproj" />
-		<ProjectReference Include="..\AUTCoordenadasReglasDeNegocio\AUTCoordenadasEntities.csproj" />
+		
 	</ItemGroup>
 </Project>

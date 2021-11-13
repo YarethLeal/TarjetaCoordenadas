@@ -29,9 +29,9 @@ namespace AUTCoordenadasAPI.Controllers
             return await (new BusinessUsuario().ListaUsuarios()); ;
         }
         [HttpPost]
-        public async Task<String> ActualizarUsuario(int id, Usuario usuario)
+        public async Task<String> ActualizarUsuario(Usuario usuario)
         {
-            return await (new BusinessUsuario().ActualizarUsuario(id,usuario));
+            return await (new BusinessUsuario().ActualizarUsuario(usuario));
         }
         [HttpPost]
         public async Task<String> EliminarUsuario(int id)
