@@ -235,5 +235,175 @@ namespace AUTCoordenadasAccesoDatos.Data
 
         }// enviarTarjeta
 
+        public string obtenerTarjetasEntregadasPorFecha(string fechaI, string fechaF)
+        {
+            string cantidad = "";
+            sqlCommand = new SqlCommand("SP_TarjetasEntregadasPorFecha", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@FechaI", fechaI);
+            sqlCommand.Parameters.AddWithValue("@fechaF", fechaF);
+
+            sqlConnection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    cantidad = itm[0].ToString();
+                }
+
+            };
+            sqlConnection.Close();
+
+            return cantidad;
+        }
+
+        public string obtenerTarjetasNegadasPorFecha(string fechaI, string fechaF)
+        {
+            string cantidad = "";
+            sqlCommand = new SqlCommand("SP_TarjetasNegadasPorFecha", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@FechaI", fechaI);
+            sqlCommand.Parameters.AddWithValue("@fechaF", fechaF);
+
+            sqlConnection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    cantidad = itm[0].ToString();
+                }
+
+            };
+            sqlConnection.Close();
+
+            return cantidad;
+        }
+
+        public string obtenerTarjetasDesbloqueadasPorFecha(string fechaI, string fechaF)
+        {
+            string cantidad = "";
+            sqlCommand = new SqlCommand("SP_TarjetasDesbloqueadasPorFecha", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@FechaI", fechaI);
+            sqlCommand.Parameters.AddWithValue("@fechaF", fechaF);
+
+            sqlConnection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    cantidad = itm[0].ToString();
+                }
+
+            };
+            sqlConnection.Close();
+
+            return cantidad;
+        }
+
+        public string obtenerTarjetasDesbloqueadasPorAdministrador(string administrador)
+        {
+            string cantidad = "";
+            sqlCommand = new SqlCommand("SP_TarjetasDesbloqueadasPorAdministrador", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@Usuario", administrador);
+
+            sqlConnection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    cantidad = itm[0].ToString();
+                }
+
+            };
+            sqlConnection.Close();
+
+            return cantidad;
+        }
+
+        public string obtenerTarjetasNegadasPorAdministrador(string administrador)
+        {
+            string cantidad = "";
+            sqlCommand = new SqlCommand("SP_TarjetasNegadasPorAdministrador", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@Usuario", administrador);
+
+            sqlConnection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    cantidad = itm[0].ToString();
+                }
+
+            };
+            sqlConnection.Close();
+
+            return cantidad;
+        }
+
+        public string obtenerTarjetasEntregadasPorAdministrador(string administrador)
+        {
+            string cantidad = "";
+            sqlCommand = new SqlCommand("SP_TarjetasEntregadasPorAdministrador", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@Usuario", administrador);
+
+            sqlConnection.Open();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    cantidad = itm[0].ToString();
+                }
+
+            };
+            sqlConnection.Close();
+
+            return cantidad;
+        }
     }
 }

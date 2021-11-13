@@ -17,7 +17,10 @@ namespace AUTCoordenadasEntities.Entities
         public string FC4 { get; set; }
         public string Usuario { get; set; }
         public string Contrasena { get; set; }
-
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
+        public string accion { get; set; }
+        public string usuario { get; set; }
 
     }
 }
