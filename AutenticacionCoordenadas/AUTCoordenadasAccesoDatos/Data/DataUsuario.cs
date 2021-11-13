@@ -61,12 +61,11 @@ namespace AUTCoordenadasAccesoADatos.Data
         }
         public async Task<String> Registrar(Usuario usuario)
         {
-            System.Diagnostics.Debug.WriteLine("Debug Data");
+            
             using (var _context = new BDContexts())
             {
                 try
             {
-                    Console.WriteLine("Llega a DATA");
                     _context.tb_Usuario.Add(usuario);
                     await _context.SaveChangesAsync();
                
@@ -86,22 +85,23 @@ namespace AUTCoordenadasAccesoADatos.Data
         {
             using (var _context = new BDContexts())
             {
-                return  await _context.tb_Usuario.Where(x => x.Eliminado == false).ToListAsync();
+                return await _context.tb_Usuario.Where(x => x.Eliminado == false).ToListAsync();
             }
-
+            
         }
 
-        public async Task<String> Actualizar(int id, Usuario usuario)
+        public async Task<String> Actualizar(Usuario usuarioParam)
         {
-            if (id != usuario.Id)
-            {
-                return "Usuario no encontrado";
-            }
+          
             try
             {
                 using (var _context = new BDContexts())
                 {
-                    _context.Entry(usuario).State = EntityState.Modified;
+
+                    var usuario = _context.tb_Usuario.First(a => a.Id == usuarioParam.Id);
+                    usuario.usuario = usuarioParam.usuario;
+                    usuario.Correo = usuarioParam.Correo;
+                    usuario.OficinaID= usuarioParam.OficinaID;
                     await _context.SaveChangesAsync();
                 }
             }
@@ -125,18 +125,10 @@ namespace AUTCoordenadasAccesoADatos.Data
 
                 if (usuario != null)
                 {
-                    usuario.Eliminado = true;
-                    _context.SaveChanges();
-                    // return RedirectToAction(nameof(Index));
-                }
-                else {
-
-
                     try
                     {
-                        _context.tb_Usuario.Remove(usuario);
+                        usuario.Eliminado = true;
                         await _context.SaveChangesAsync();
-                        //return RedirectToAction(nameof(Index));
                     }
                     catch (DbUpdateException /* ex */)
                     {
@@ -145,9 +137,8 @@ namespace AUTCoordenadasAccesoADatos.Data
                              "Vuelve a intentarlo y, si el problema persiste, " +
                              "consulte con el administrador del sistema.";
                     }
-
                 }
-
+               
                
             }
             return "Usuario eliminado con exito";
@@ -159,6 +150,19 @@ namespace AUTCoordenadasAccesoADatos.Data
             {
                List< Usuario> usuario = await _context.tb_Usuario.Where(x => x.NombreUsuario == nombre).ToListAsync();
                 
+                if (usuario == null)
+                {
+                    return null;
+                }
+                return usuario;
+            }
+        }
+
+        public async Task<Usuario> BuscarId(int id)
+        {
+            using (var _context = new BDContexts())
+            {
+                var usuario = await _context.tb_Usuario.FindAsync(id);
                 if (usuario == null)
                 {
                     return null;

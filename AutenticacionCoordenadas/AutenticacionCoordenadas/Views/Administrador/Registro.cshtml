@@ -36,9 +36,10 @@
                 <input asp-for="Correo" class="form-control" required />
             </div>
             <div class="form-group w-100">
-                <label  class="control-label">Cargo:</label>
-                <input  class="form-control" required />
+                <label asp-for="TipoUsuario" class="control-label">Tipo Usuario:</label>
+                <input asp-for="TipoUsuario" class="form-control" placeholder="u o a" required />
             </div>
+
             <div class="form-group w-100">
                 <label asp-for="OficinaID" class="control-label">Oficina:</label>
                 <select asp-for="OficinaID" name="Oficina" class="text-center">

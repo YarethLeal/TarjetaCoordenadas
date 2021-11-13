@@ -1,24 +1,26 @@
-﻿<div class="d-flex justify-content-center">
-    
+﻿@model AUTCoordenadasEntities.Entities.BaseModel
+
+<div class="d-flex justify-content-center">
+
     <div>
-  
-        <form method="post" asp-controller="Usuario" asp-action="Autenticacion">
+
+        <form method="post" asp-controller="Usuario" asp-action="IniciarSesion">
 
             <div class="form-group w-100">
                 <label class="control-label">Nombre de usuario:</label>
-                <input class="form-control" required/>
+                <input asp-for="Usuario" type="text" value="@ViewBag.Usuario" class="form-control" required />
             </div>
             <div class="form-group w-100">
                 <label class="control-label">Contraseña:</label>
-                <input  type="password" class="form-control" required/>
+                <input asp-for="Contrasena" type="password" class="form-control" required />
             </div>
 
             <div class="text-center">
-                <input type="submit" value="Iniciar sesión" class="btn btn-primary" style="background-color: #005cb9;"/>
+                <input type="submit" value="Iniciar sesión" class="btn btn-primary" style="background-color: #005cb9;" />
             </div>
         </form>
 
- 
+
     </div>
 </div>
 

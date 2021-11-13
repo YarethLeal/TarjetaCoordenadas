@@ -16,7 +16,6 @@ namespace AUTCoordenadasReglasDeNegocio.Business
         }
         public async Task<String> Registrar(Usuario usuario)
         {
-            System.Diagnostics.Debug.WriteLine("Debug Business");
             return await _dUser.Registrar(usuario);
         }
 
@@ -25,9 +24,9 @@ namespace AUTCoordenadasReglasDeNegocio.Business
             return await _dUser.ListaUsuarios();
         }
 
-        public async Task<String> ActualizarUsuario(int id, Usuario usuario)
+        public async Task<String> ActualizarUsuario(Usuario usuario)
         {
-            return await _dUser.Actualizar(id, usuario);
+            return await _dUser.Actualizar(usuario);
         }
 
         public async Task<String> EliminarUsuario(int id)
@@ -38,6 +37,11 @@ namespace AUTCoordenadasReglasDeNegocio.Business
         public async Task<List<Usuario>> BuscarUsuario(string nombre)
         {
             return await _dUser.BuscarNombre(nombre);
+        }
+
+        public async Task<Usuario> BuscarId(int id)
+        {
+            return await _dUser.BuscarId(id);
         }
     }
 }
