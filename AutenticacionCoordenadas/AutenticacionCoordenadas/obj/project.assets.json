@@ -71,6 +71,19 @@
           "lib/netstandard2.0/Grpc.Core.Api.dll": {}
         }
       },
+      "Microsoft.AspNet.WebApi.Client/5.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json.Bson": "1.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -921,6 +934,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Newtonsoft.Json.Bson/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
       "NuGet.Frameworks/4.7.0": {
@@ -2857,6 +2883,23 @@
         "lib/netstandard2.0/Grpc.Core.Api.xml"
       ]
     },
+    "Microsoft.AspNet.WebApi.Client/5.2.7": {
+      "sha512": "/76fAHknzvFqbznS6Uj2sOyE9rJB3PltY+f53TH8dX9RiGhk02EhuFCWljSj5nnqKaTsmma8DFR50OGyQ4yJ1g==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.client/5.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/System.Net.Http.Formatting.dll",
+        "lib/net45/System.Net.Http.Formatting.xml",
+        "lib/netstandard2.0/System.Net.Http.Formatting.dll",
+        "lib/netstandard2.0/System.Net.Http.Formatting.xml",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
+        "microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
+        "microsoft.aspnet.webapi.client.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "sha512": "Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
       "type": "package",
@@ -4258,6 +4301,21 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "Newtonsoft.Json.Bson/1.0.1": {
+      "sha512": "5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
+      "type": "package",
+      "path": "newtonsoft.json.bson/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Newtonsoft.Json.Bson.dll",
+        "lib/net45/Newtonsoft.Json.Bson.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
+        "newtonsoft.json.bson.1.0.1.nupkg.sha512",
+        "newtonsoft.json.bson.nuspec"
       ]
     },
     "NuGet.Frameworks/4.7.0": {
@@ -8973,24 +9031,25 @@
       "AUTCoordenadasEntities >= 1.0.0",
       "AUTCoordenadasReglasDeNegocio >= 1.0.0",
       "Grpc.Core >= 2.41.1",
+      "Microsoft.AspNet.WebApi.Client >= 5.2.7",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
       "System.Drawing.Common >= 6.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\Yareth\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
       "projectName": "AutenticacionCoordenadas",
-      "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\obj\\",
+      "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas.csproj",
+      "packagesPath": "C:\\Users\\Yareth\\.nuget\\packages\\",
+      "outputPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AutenticacionCoordenadas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Yareth\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9004,11 +9063,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj": {
-              "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj"
+            "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj"
             },
-            "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj": {
-              "projectPath": "C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj"
+            "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasReglasDeNegocio\\AUTCoordenadasReglasDeNegocio.csproj"
             }
           }
         }
@@ -9026,6 +9085,10 @@
           "Grpc.Core": {
             "target": "Package",
             "version": "[2.41.1, )"
+          },
+          "Microsoft.AspNet.WebApi.Client": {
+            "target": "Package",
+            "version": "[5.2.7, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
@@ -9054,7 +9117,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.209\\RuntimeIdentifierGraph.json"
       }
     }
   }

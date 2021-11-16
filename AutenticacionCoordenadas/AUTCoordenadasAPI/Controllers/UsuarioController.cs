@@ -16,7 +16,9 @@ namespace AUTCoordenadasAPI.Controllers
         [HttpPost]
         public string iniciarSesion(Usuario datosUsuario)
         {
+           System.Diagnostics.Debug.WriteLine("API User");
             return (new BusinessUsuario().iniciarSesion(datosUsuario));
+           // return "NULL";
         }
         [HttpPost]
         public async Task<String> Registrar(Usuario usuario)
@@ -31,7 +33,7 @@ namespace AUTCoordenadasAPI.Controllers
         [HttpPost]
         public async Task<String> ActualizarUsuario(int id, Usuario usuario)
         {
-            return await (new BusinessUsuario().ActualizarUsuario(id,usuario));
+            return await (new BusinessUsuario().ActualizarUsuario(usuario));
         }
         [HttpPost]
         public async Task<String> EliminarUsuario(int id)

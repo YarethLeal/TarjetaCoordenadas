@@ -54,7 +54,6 @@ C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\Autenti
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.RazorAssemblyInfo.cache
 C:\Users\hp\Documents\Github\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.RazorAssemblyInfo.cs
-D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.csprojAssemblyReference.cache
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.AssemblyInfoInputs.cache
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.AssemblyInfo.cs
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.csproj.CoreCompileInputs.cache
@@ -232,3 +231,19 @@ D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoo
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\Grpc.Core.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\Grpc.Core.Api.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libgrpc_csharp_ext.arm64.so
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libgrpc_csharp_ext.x64.so
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libgrpc_csharp_ext.x64.dylib
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\grpc_csharp_ext.x64.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\grpc_csharp_ext.x86.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Salida.cshtml.g.cs
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Documents\GitHub\TarjetaCoordenadas\AutenticacionCoordenadas\AutenticacionCoordenadas\obj\Debug\netcoreapp3.1\AutenticacionCoordenadas.csprojAssemblyReference.cache
