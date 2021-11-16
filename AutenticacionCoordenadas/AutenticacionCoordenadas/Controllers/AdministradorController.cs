@@ -1,6 +1,7 @@
 ﻿using AUTCoordenadasEntities.Entities;
 using AUTCoordenadasReglasDeNegocio.Business;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -17,8 +18,6 @@ namespace AutenticacionCoordenadas.Controllers
         public IConfiguration Configuration { get; }
         private BusinessUsuario businessUsuario;
         private BusinessOficina businessOficina;
-        static HttpClient client = new HttpClient();
-      
         public AdministradorController(IConfiguration configuration)
         {
             businessUsuario = new BusinessUsuario();
@@ -113,6 +112,57 @@ namespace AutenticacionCoordenadas.Controllers
 
             return View();
         }
+
+        public IActionResult Reportes()
+        {
+            List<SelectListItem> acciones = new List<SelectListItem>();
+            acciones.Add(new SelectListItem { Text = "Aceptar solicitud desbloqueo", Value = "Aceptar solicitud desbloqueo" });
+            acciones.Add(new SelectListItem { Text = "Aceptar solicitud tarjeta", Value = "Aceptar solicitud tarjeta" });
+            acciones.Add(new SelectListItem { Text = "Rechazo solicitud tarjeta", Value = "Rechazo solicitud tarjeta" });
+
+            ViewBag.Acciones = acciones;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Reporte1(BaseModel baseModel)
+        {
+            string info = "";
+            if (baseModel.usuario == "Usuario administrador")
+            { // si esta como se definio, se considera que quiere buscar por fecha
+                if (baseModel.accion == "Aceptar solicitud desbloqueo")
+                {
+                    info = businessTarjeta.obtenerTarjetasDesbloqueadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
+                }
+                else if (baseModel.accion == "Aceptar solicitud tarjeta")
+                {
+                    info = businessTarjeta.obtenerTarjetasEntregadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
+                }
+                else
+                {
+                    info = businessTarjeta.obtenerTarjetasNegadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
+                }// else
+            }
+            else
+            {
+                if (baseModel.accion == "Aceptar solicitud desbloqueo")
+                {
+                    info = businessTarjeta.obtenerTarjetasDesbloqueadasPorAdministrador(baseModel.usuario);
+                }
+                else if (baseModel.accion == "Aceptar solicitud tarjeta")
+                {
+                    info = businessTarjeta.obtenerTarjetasEntregadasPorAdministrador(baseModel.usuario);
+                }
+                else
+                {
+                    info = businessTarjeta.obtenerTarjetasNegadasPorAdministrador(baseModel.usuario);
+                }// else
+            }//
+
+            return Json(new { status = true, message = info });
+        }
+
 
     }
 }
