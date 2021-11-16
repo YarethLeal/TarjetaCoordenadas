@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 
@@ -17,13 +18,12 @@ namespace AutenticacionCoordenadas.Controllers
         public IConfiguration Configuration { get; }
         private BusinessUsuario businessUsuario;
         private BusinessOficina businessOficina;
-        private BusinessTarjeta businessTarjeta;
-
         public AdministradorController(IConfiguration configuration)
         {
             businessUsuario = new BusinessUsuario();
             businessOficina = new BusinessOficina();
             Configuration = configuration;
+            client.BaseAddress = new Uri("https://localhost:5001/");
         }
         
 

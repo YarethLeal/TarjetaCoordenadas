@@ -13,12 +13,14 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
+using System.Net.Http.Headers;
 
 namespace AutenticacionCoordenadas.Controllers
 {
@@ -27,13 +29,14 @@ namespace AutenticacionCoordenadas.Controllers
         public IConfiguration Configuration { get; }
         private BusinessTarjeta businessTarjeta;
         private BusinessUsuario businessUsuario;
-
+        static HttpClient client = new HttpClient();
         public UsuarioController(IConfiguration configuration)
         {
             businessTarjeta = new BusinessTarjeta();
             businessUsuario = new BusinessUsuario();
             Configuration = configuration;
-          
+            client.BaseAddress = new Uri("https://localhost:44333/");
+            //client.BaseAddress = new Uri("https://localhost:5001/");
         }
 
         public IActionResult Index()
@@ -110,18 +113,25 @@ namespace AutenticacionCoordenadas.Controllers
         }
 
         [HttpPost]
-        public IActionResult IniciarSesion(BaseModel baseModel)
+        public async Task<IActionResult> IniciarSesion(BaseModel baseModel)
         {
             int salida = 1;
             Usuario usuario = new Usuario();
             usuario.usuario = baseModel.Usuario;
             usuario.Contrasena = baseModel.Contrasena;
+            /*client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "api/Usuario/iniciarSesion", usuario);*/
+            //bool logrado = response.EnsureSuccessStatusCode().;
             string resultado = businessUsuario.iniciarSesion(usuario);
+            //string resultado = await response.Content.ReadAsStringAsync();
+            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: "+resultado);
             if (resultado == "NULL")
             {
                 salida = 0;
             }
-            /////
            if(salida==0)
             {
                 ViewBag.Usuario = "";

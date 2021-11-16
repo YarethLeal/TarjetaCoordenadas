@@ -7,6 +7,5 @@
 	<ItemGroup>
 		<ProjectReference Include="..\AUTCoordenadasEntities\AUTCoordenadasEntities.csproj" />
 		<ProjectReference Include="..\AUTCoordenadasReglasDeNegocio\AUTCoordenadasReglasDeNegocio.csproj" />
-		
 	</ItemGroup>
 </Project>

@@ -16,7 +16,9 @@ namespace AUTCoordenadasAPI.Controllers
         [HttpPost]
         public string iniciarSesion(Usuario datosUsuario)
         {
+           System.Diagnostics.Debug.WriteLine("API User");
             return (new BusinessUsuario().iniciarSesion(datosUsuario));
+           // return "NULL";
         }
         [HttpPost]
         public async Task<String> Registrar(Usuario usuario)
