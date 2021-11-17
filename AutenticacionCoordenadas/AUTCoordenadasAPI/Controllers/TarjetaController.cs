@@ -9,7 +9,7 @@ using AUTCoordenadasReglasDeNegocio.Business;
 
 namespace AUTCoordenadasAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class TarjetaController : ControllerBase
     {
