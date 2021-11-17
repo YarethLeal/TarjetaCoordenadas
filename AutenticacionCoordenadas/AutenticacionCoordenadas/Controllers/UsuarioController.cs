@@ -29,13 +29,13 @@ namespace AutenticacionCoordenadas.Controllers
         public IConfiguration Configuration { get; }
         private BusinessTarjeta businessTarjeta;
         private BusinessUsuario businessUsuario;
-        static HttpClient client = new HttpClient();
+        HttpClient client = new HttpClient();
         public UsuarioController(IConfiguration configuration)
         {
             businessTarjeta = new BusinessTarjeta();
             businessUsuario = new BusinessUsuario();
             Configuration = configuration;
-            client.BaseAddress = new Uri("https://localhost:44333/");
+            //client.BaseAddress = new Uri("https://localhost:44333/");
             //client.BaseAddress = new Uri("https://localhost:5001/");
         }
 
@@ -119,16 +119,17 @@ namespace AutenticacionCoordenadas.Controllers
             Usuario usuario = new Usuario();
             usuario.usuario = baseModel.Usuario;
             usuario.Contrasena = baseModel.Contrasena;
-            /*client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await client.PostAsJsonAsync(
-                "api/Usuario/iniciarSesion", usuario);*/
+                "https://localhost:44333/Usuario/IniciarSesion", usuario);
             //bool logrado = response.EnsureSuccessStatusCode().;
-            string resultado = businessUsuario.iniciarSesion(usuario);
-            //string resultado = await response.Content.ReadAsStringAsync();
+           // string resultado = businessUsuario.iniciarSesion(usuario);
+            string resultado = await response.Content.ReadAsStringAsync();
             System.Diagnostics.Debug.WriteLine("Esta es la respuesta: "+resultado);
-            if (resultado == "NULL")
+            string error = '"' + "NULL" + '"';
+            if (resultado == error)
             {
                 salida = 0;
             }

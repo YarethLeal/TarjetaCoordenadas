@@ -6,14 +6,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using AUTCoordenadasEntities.Entities;
 using AUTCoordenadasReglasDeNegocio.Business;
+using Microsoft.Extensions.Configuration;
 
 namespace AUTCoordenadasAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class OficinaController : ControllerBase
     {
-        [HttpPost]
+        public IConfiguration Configuration { get; }
+
+        public OficinaController(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+        [HttpGet]
+        [Route("ObtenerOficinas")]
         public async Task<List<Oficina>> ObtenerOficinas()
         {
             return await (new BusinessOficina().ObtenerOficinas());

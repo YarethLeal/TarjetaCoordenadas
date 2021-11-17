@@ -6,15 +6,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AUTCoordenadasReglasDeNegocio.Business;
+using Microsoft.Extensions.Configuration;
 
 namespace AUTCoordenadasAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class UsuarioController : ControllerBase
     {
+        public IConfiguration Configuration { get; }
+
+        public UsuarioController(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         [HttpPost]
-        public string iniciarSesion(Usuario datosUsuario)
+        [Route("IniciarSesion")]
+        public string IniciarSesion(Usuario datosUsuario)
         {
            System.Diagnostics.Debug.WriteLine("API User");
             return (new BusinessUsuario().iniciarSesion(datosUsuario));
@@ -25,7 +33,8 @@ namespace AUTCoordenadasAPI.Controllers
         {
             return await (new BusinessUsuario().Registrar(usuario)); ;
         }
-        [HttpPost]
+        [HttpGet]
+        [Route("ListaUsuarios")]
         public async Task<List<Usuario>> ListaUsuarios()
         {
             return await (new BusinessUsuario().ListaUsuarios()); ;

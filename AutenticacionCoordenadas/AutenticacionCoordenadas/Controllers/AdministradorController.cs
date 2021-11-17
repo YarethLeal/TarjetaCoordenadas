@@ -18,12 +18,14 @@ namespace AutenticacionCoordenadas.Controllers
         public IConfiguration Configuration { get; }
         private BusinessUsuario businessUsuario;
         private BusinessOficina businessOficina;
+        private BusinessTarjeta businessTarjeta;
         public AdministradorController(IConfiguration configuration)
         {
             businessUsuario = new BusinessUsuario();
             businessOficina = new BusinessOficina();
+            businessTarjeta = new BusinessTarjeta();
             Configuration = configuration;
-            client.BaseAddress = new Uri("https://localhost:5001/");
+            //client.BaseAddress = new Uri("https://localhost:5001/");
         }
         
 
