@@ -52,7 +52,7 @@ namespace AUTCoordenadasAPI.Controllers
             return await (new BusinessUsuario().ActualizarUsuario(usuario));
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("EliminarUsuario")]
         public async Task<String> EliminarUsuario(int id)
         {
@@ -70,7 +70,6 @@ namespace AUTCoordenadasAPI.Controllers
         [Route("BuscarId/{IdEdit}")]
         public async Task<Usuario> BuscarId(int IdEdit)
         {
-            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: api" + IdEdit);
             return await (new BusinessUsuario().BuscarId(IdEdit));
         }
     }
