@@ -148,8 +148,8 @@ namespace AUTCoordenadasAccesoADatos.Data
         {
             using (var _context = new BDContexts())
             {
-               List< Usuario> usuario = await _context.tb_Usuario.Where(x => x.NombreUsuario == nombre).ToListAsync();
-                
+               List<Usuario> usuario = await _context.tb_Usuario.Where(x => x.NombreUsuario==nombre).ToListAsync();
+                System.Diagnostics.Debug.WriteLine("Lista: "+usuario.ToArray());
                 if (usuario == null)
                 {
                     return null;

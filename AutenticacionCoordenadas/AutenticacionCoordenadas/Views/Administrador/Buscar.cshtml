@@ -11,7 +11,7 @@
 
             <div class="form-group w-100">
                 <label class="control-label">Nombre de usuario:</label>
-                <input type="text" name="nombre" required/>
+                <input type="text" id="usuario" name="usuario" required/>
             </div>
 
 
@@ -39,13 +39,13 @@
                 <th>Correo</th>
                 <th>Oficina</th>
             </tr>
-
+            @if (Model != null) { 
             @foreach (var usuarios in Model)
             {
         <tr>
             <td>@usuarios.Id</td>
-            <td>@usuarios.usuario</td>
             <td>@usuarios.Identificacion</td>
+            <td>@usuarios.usuario</td>
             <td>@usuarios.NombreUsuario</td>
             <td>@usuarios.PrimerApellido</td>
             <td>@usuarios.Correo</td>
@@ -53,7 +53,7 @@
 
         </tr>
                     }
-
+            }
             </table>
     </div>
 </div>
