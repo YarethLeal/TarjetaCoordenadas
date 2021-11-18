@@ -1,7 +1,12 @@
 ﻿@model AUTCoordenadasEntities.Entities.BaseModel
+@using Microsoft.AspNetCore.Http
+@{
 
+    var vUser = Context.Session.GetString("_User");<!--Capturar la sesión en la variable vUser-->
+
+}
 <div>
-    <a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="float:right">Bienvenido: Usuario</a>
+    <a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="float:right">Bienvenido: @vUser</a>
 </div>
 <div class="d-flex justify-content-center">
 

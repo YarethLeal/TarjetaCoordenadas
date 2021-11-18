@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Http;
 
 namespace AutenticacionCoordenadas.Controllers
 {
@@ -30,6 +31,8 @@ namespace AutenticacionCoordenadas.Controllers
         private BusinessTarjeta businessTarjeta;
         private BusinessUsuario businessUsuario;
         HttpClient client = new HttpClient();
+        const string SessionUser = "_User";
+        const string SessionId = "_Id";
         public UsuarioController(IConfiguration configuration)
         {
             businessTarjeta = new BusinessTarjeta();
@@ -138,7 +141,11 @@ namespace AutenticacionCoordenadas.Controllers
                 ViewBag.Usuario = "";
                 return View("Inicio");
             }
-
+            HttpContext.Session.Clear();
+            HttpContext.Session.SetString(SessionUser, usuario.usuario);
+            resultado = string.Join("", resultado.Split('"'));
+            HttpContext.Session.SetString(SessionId, resultado);
+            System.Diagnostics.Debug.WriteLine(HttpContext.Session.GetString("_Id"));
             configurarParaAutenticacion();
             return View("Autenticacion");
             //return Json(new { status = true, message = resultado});
@@ -179,7 +186,7 @@ namespace AutenticacionCoordenadas.Controllers
             }// else
 
             Tarjeta datosTarjeta = new Tarjeta();
-            datosTarjeta.id = 12;
+            datosTarjeta.id = Int32.Parse(HttpContext.Session.GetString("_Id"));
             string filaColumna = FilaColumna;
             datosTarjeta.fila = Int32.Parse(filaColumna[1].ToString());
             datosTarjeta.columna = filaColumna[0].ToString();
