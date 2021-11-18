@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 
@@ -16,16 +18,11 @@ namespace AutenticacionCoordenadas.Controllers
     public class AdministradorController : Controller
     {
         public IConfiguration Configuration { get; }
-        private BusinessUsuario businessUsuario;
-        private BusinessOficina businessOficina;
-        private BusinessTarjeta businessTarjeta;
+        HttpClient client = new HttpClient();
         public AdministradorController(IConfiguration configuration)
         {
-            businessUsuario = new BusinessUsuario();
-            businessOficina = new BusinessOficina();
-            businessTarjeta = new BusinessTarjeta();
-            Configuration = configuration;
-            //client.BaseAddress = new Uri("https://localhost:5001/");
+             Configuration = configuration;
+           
         }
         
 
@@ -36,7 +33,13 @@ namespace AutenticacionCoordenadas.Controllers
 
         public async Task<IActionResult> Actualiza(int IdEdit)
         {
-            var usuario = await businessUsuario.BuscarId(IdEdit);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            var response = await client.GetAsync("https://localhost:44333/Usuario/BuscarId/" + IdEdit);
+            string resultado = await response.Content.ReadAsStringAsync();
+            var usuario = JsonConvert.DeserializeObject<Usuario>(resultado);
+            
             ViewBag.Usuario = usuario;
             return View();
         }
@@ -45,16 +48,27 @@ namespace AutenticacionCoordenadas.Controllers
         {
             
             usuarioParam.FechaActualiza = DateTime.Today;
-            await businessUsuario.ActualizarUsuario(usuarioParam);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Usuario/ActualizarUsuario", usuarioParam);
             return Redirect("~/Administrador/Buscar");
         }
 
 
         public async Task<IActionResult> Buscar()
         {
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.GetAsync(
+                "https://localhost:44333/Usuario/ListaUsuarios");
 
-            var model = await businessUsuario.ListaUsuarios();
-            return View(model);
+            var model = JsonConvert.DeserializeObject<List<Usuario>>(response.Content.ReadAsStringAsync().Result);
+            
+
+            return View("Buscar",model);
         }
 
         public IActionResult Registro()
@@ -66,17 +80,33 @@ namespace AutenticacionCoordenadas.Controllers
         public async Task<IActionResult> BuscarUsuarioNombre(string nombre)
         {
 
-            var model = await businessUsuario.BuscarUsuario(nombre);
-
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            var response = await client.GetAsync("https://localhost:44333/Usuario/BuscarUsuario/" + nombre);
+            string resultado = await response.Content.ReadAsStringAsync();
+            var model = JsonConvert.DeserializeObject<List<Usuario>>(resultado);
+                      
             return View("Buscar",model);
         }
 
         [HttpPost]
         public async Task<IActionResult> EliminarUsuario(int IdDelete)
         {
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Usuario/EliminarUsuario", IdDelete);
+            ViewBag.respuesta = JsonConvert.DeserializeObject<String>(response.Content.ReadAsStringAsync().Result);
 
-            var result = await businessUsuario.EliminarUsuario(IdDelete);
-            var model = await businessUsuario.ListaUsuarios();
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response1 = await client.GetAsync(
+                "https://localhost:44333/Usuario/ListaUsuarios");
+            var model = JsonConvert.DeserializeObject<List<Usuario>>(response1.Content.ReadAsStringAsync().Result);
             return View("Buscar", model);
         }
 
@@ -84,13 +114,13 @@ namespace AutenticacionCoordenadas.Controllers
         [HttpPost]
         public async Task<IActionResult> Registro(Usuario usuarioParam)
         {
-           
-            usuarioParam.FechaActualiza = DateTime.Today;
-            usuarioParam.Observaciones = "ninguna";
-            usuarioParam.UsuarioActualiza = "admin";
-            usuarioParam.CantidadIntentosAcceso = 0;
-            usuarioParam.TipoUsuario = 'u';
-            await businessUsuario.Registrar(usuarioParam);
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Usuario/Registrar", usuarioParam);
+            ViewBag.respuesta = JsonConvert.DeserializeObject<String>(response.Content.ReadAsStringAsync().Result);
             return View();
         }
         
@@ -127,43 +157,43 @@ namespace AutenticacionCoordenadas.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Reporte1(BaseModel baseModel)
-        {
-            string info = "";
-            if (baseModel.usuario == "Usuario administrador")
-            { // si esta como se definio, se considera que quiere buscar por fecha
-                if (baseModel.accion == "Aceptar solicitud desbloqueo")
-                {
-                    info = businessTarjeta.obtenerTarjetasDesbloqueadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
-                }
-                else if (baseModel.accion == "Aceptar solicitud tarjeta")
-                {
-                    info = businessTarjeta.obtenerTarjetasEntregadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
-                }
-                else
-                {
-                    info = businessTarjeta.obtenerTarjetasNegadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
-                }// else
-            }
-            else
-            {
-                if (baseModel.accion == "Aceptar solicitud desbloqueo")
-                {
-                    info = businessTarjeta.obtenerTarjetasDesbloqueadasPorAdministrador(baseModel.usuario);
-                }
-                else if (baseModel.accion == "Aceptar solicitud tarjeta")
-                {
-                    info = businessTarjeta.obtenerTarjetasEntregadasPorAdministrador(baseModel.usuario);
-                }
-                else
-                {
-                    info = businessTarjeta.obtenerTarjetasNegadasPorAdministrador(baseModel.usuario);
-                }// else
-            }//
+       // [HttpPost]
+        //public IActionResult Reporte1(BaseModel baseModel)
+        //{
+        //    string info = "";
+        //    if (baseModel.usuario == "Usuario administrador")
+        //    { // si esta como se definio, se considera que quiere buscar por fecha
+        //        if (baseModel.accion == "Aceptar solicitud desbloqueo")
+        //        {
+        //            info = businessTarjeta.obtenerTarjetasDesbloqueadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
+        //        }
+        //        else if (baseModel.accion == "Aceptar solicitud tarjeta")
+        //        {
+        //            info = businessTarjeta.obtenerTarjetasEntregadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
+        //        }
+        //        else
+        //        {
+        //            info = businessTarjeta.obtenerTarjetasNegadasPorFecha(baseModel.FechaInicio.Date.ToShortDateString(), baseModel.FechaFin.Date.ToShortDateString());
+        //        }// else
+        //    }
+        //    else
+        //    {
+        //        if (baseModel.accion == "Aceptar solicitud desbloqueo")
+        //        {
+        //            info = businessTarjeta.obtenerTarjetasDesbloqueadasPorAdministrador(baseModel.usuario);
+        //        }
+        //        else if (baseModel.accion == "Aceptar solicitud tarjeta")
+        //        {
+        //            info = businessTarjeta.obtenerTarjetasEntregadasPorAdministrador(baseModel.usuario);
+        //        }
+        //        else
+        //        {
+        //            info = businessTarjeta.obtenerTarjetasNegadasPorAdministrador(baseModel.usuario);
+        //        }// else
+        //    }//
 
-            return Json(new { status = true, message = info });
-        }
+        //    return Json(new { status = true, message = info });
+        //}
 
 
     }

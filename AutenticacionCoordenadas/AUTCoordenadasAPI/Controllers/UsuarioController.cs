@@ -24,13 +24,18 @@ namespace AUTCoordenadasAPI.Controllers
         [Route("IniciarSesion")]
         public string IniciarSesion(Usuario datosUsuario)
         {
-           System.Diagnostics.Debug.WriteLine("API User");
+           
             return (new BusinessUsuario().iniciarSesion(datosUsuario));
            // return "NULL";
         }
         [HttpPost]
+        [Route("Registrar")]
         public async Task<String> Registrar(Usuario usuario)
         {
+            usuario.FechaActualiza = DateTime.Today;
+            usuario.Observaciones = "ninguna";
+            usuario.UsuarioActualiza = "admin";
+            usuario.CantidadIntentosAcceso = 0;
             return await (new BusinessUsuario().Registrar(usuario)); ;
         }
         [HttpGet]
@@ -39,20 +44,34 @@ namespace AUTCoordenadasAPI.Controllers
         {
             return await (new BusinessUsuario().ListaUsuarios()); ;
         }
-        [HttpPost]
+
+        [HttpPut]
+        [Route("ActualizarUsuario")]
         public async Task<String> ActualizarUsuario(Usuario usuario)
         {
             return await (new BusinessUsuario().ActualizarUsuario(usuario));
         }
-        [HttpPost]
+
+        [HttpPut]
+        [Route("EliminarUsuario")]
         public async Task<String> EliminarUsuario(int id)
         {
             return await (new BusinessUsuario().EliminarUsuario(id));
         }
-        [HttpPost]
+
+        [HttpGet]
+        [Route("BuscarUsuario/{nombre}")]
         public async Task<List<Usuario>> BuscarUsuario(string nombre)
         {
             return await (new BusinessUsuario().BuscarUsuario(nombre));
+        }
+
+        [HttpGet]
+        [Route("BuscarId/{IdEdit}")]
+        public async Task<Usuario> BuscarId(int IdEdit)
+        {
+            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: api" + IdEdit);
+            return await (new BusinessUsuario().BuscarId(IdEdit));
         }
     }
 }

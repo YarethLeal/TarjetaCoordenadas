@@ -27,13 +27,10 @@ namespace AutenticacionCoordenadas.Controllers
     public class UsuarioController : Controller
     {
         public IConfiguration Configuration { get; }
-        private BusinessTarjeta businessTarjeta;
-        private BusinessUsuario businessUsuario;
+        
         HttpClient client = new HttpClient();
         public UsuarioController(IConfiguration configuration)
         {
-            businessTarjeta = new BusinessTarjeta();
-            businessUsuario = new BusinessUsuario();
             Configuration = configuration;
             //client.BaseAddress = new Uri("https://localhost:44333/");
             //client.BaseAddress = new Uri("https://localhost:5001/");
@@ -94,20 +91,31 @@ namespace AutenticacionCoordenadas.Controllers
         }
 
         [HttpPost]
-        public IActionResult PeticionD()
+        public async Task<IActionResult> PeticionD()
         {
             Tarjeta datosTarjeta = new Tarjeta();
-            businessTarjeta.creacionTarjeta(datosTarjeta);
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Tarjeta/creacionTarjeta", datosTarjeta);
             return Json(new { status = true, message = "Realizado" });
+
+            
         }
 
         [HttpPost]
-        public IActionResult BloqueoD()
+        public async Task<IActionResult> BloqueoD()
         {
 
             Tarjeta datosTarjeta = new Tarjeta();
             datosTarjeta.id_usuario = 5;
-            businessTarjeta.creacionTarjeta(datosTarjeta);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Tarjeta/creacionTarjeta", datosTarjeta);
 
             return Json(new { status = true, message = "creacion" });
         }
@@ -149,10 +157,10 @@ namespace AutenticacionCoordenadas.Controllers
         {
             
             ViewBag.Salida = "FALLO";
-            int salida1 = validarCasilla(baseModel.FC1,baseModel.CA1);
-            int salida2 = validarCasilla(baseModel.FC2, baseModel.CA2);
-            int salida3 = validarCasilla(baseModel.FC3, baseModel.CA3);
-            int salida4 = validarCasilla(baseModel.FC4, baseModel.CA4);
+            int salida1 = validarCasilla(baseModel.FC1,baseModel.CA1).Result;
+            int salida2 = validarCasilla(baseModel.FC2, baseModel.CA2).Result;
+            int salida3 = validarCasilla(baseModel.FC3, baseModel.CA3).Result;
+            int salida4 = validarCasilla(baseModel.FC4, baseModel.CA4).Result;
             int suma = 0;
             suma = salida1 + salida2 + salida3 + salida4;
             if (suma == 4)
@@ -162,7 +170,7 @@ namespace AutenticacionCoordenadas.Controllers
             return View("Salida");
         }
 
-        public int validarCasilla(string FilaColumna, string valor)
+        public async Task<int> validarCasilla(string FilaColumna, string valor)
         {
             int salida = 1;
 
@@ -185,9 +193,17 @@ namespace AutenticacionCoordenadas.Controllers
             datosTarjeta.columna = filaColumna[0].ToString();
             datosTarjeta.valor = Int32.Parse(FilaCol);
 
-            string resultado = businessTarjeta.autenticar(datosTarjeta);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Tarjeta/autenticar", datosTarjeta);
+            string resultado = await response.Content.ReadAsStringAsync();
+           
+            
             Console.WriteLine(resultado);
-            if (resultado == "NULL")
+            string error = '"' + "NULL" + '"';
+            if (resultado == error)
             {
                 salida = 0;
             }
