@@ -106,7 +106,8 @@ namespace AUTCoordenadasAccesoDatos.Data
 
         private void crearImagen(List<Tarjeta> listaCasilla, int idUsuario)
         {
-            Bitmap bitMapImage = new System.Drawing.Bitmap((@"C:\\Users\\Lenovo\\Downloads\\disTarjetaN.png"));
+  
+            Bitmap bitMapImage = new System.Drawing.Bitmap((@"C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\Imagen\\disTarjetaN.jpeg"));
             Graphics graphicImage = Graphics.FromImage(bitMapImage);
 
             int x = 370;
@@ -153,7 +154,7 @@ namespace AUTCoordenadasAccesoDatos.Data
                 y += 90;
             }// for fila
 
-            bitMapImage.Save("C:\\Users\\Lenovo\\Downloads\\tarjetaUsuario"+idUsuario+".jpg", ImageFormat.Jpeg);
+            bitMapImage.Save("C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\Imagen\\tarjetaUsuario"+idUsuario+ ".jpeg", ImageFormat.Jpeg);
             graphicImage.Dispose();
             bitMapImage.Dispose();
 
@@ -209,7 +210,7 @@ namespace AUTCoordenadasAccesoDatos.Data
             // agregar imagen
             string mediaType = MediaTypeNames.Image.Jpeg;
             // carpeta local de la maquina de un administrador
-            LinkedResource img = new LinkedResource("C:\\Users\\Lenovo\\Downloads\\tarjetaUsuario"+idUsuario+".jpg", mediaType);
+            LinkedResource img = new LinkedResource("C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\Imagen\\tarjetaUsuario"+idUsuario+".jpg", mediaType);
 
             img.ContentId = "TarjetaCoordenadas";
             img.ContentType.MediaType = mediaType;
