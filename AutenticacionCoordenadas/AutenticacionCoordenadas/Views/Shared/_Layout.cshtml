@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@{
+
+    var vUser = Context.Session.GetString("_User");<!--Capturar la sesión en la variable vUser-->
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,7 +45,7 @@
 
     </header>
     <div class="container">
-        <main role="main" >
+        <main role="main">
             @RenderBody()
         </main>
     </div>
