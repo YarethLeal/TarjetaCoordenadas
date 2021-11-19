@@ -22,20 +22,21 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 
 namespace AutenticacionCoordenadas.Controllers
 {
     public class UsuarioController : Controller
     {
         public IConfiguration Configuration { get; }
-        
+
         HttpClient client = new HttpClient();
         const string SessionUser = "_User";
         const string SessionId = "_Id";
         public UsuarioController(IConfiguration configuration)
         {
             Configuration = configuration;
+            //client.BaseAddress = new Uri("https://localhost:44333/");
+            //client.BaseAddress = new Uri("https://localhost:5001/");
         }
 
         public IActionResult Index()
@@ -51,28 +52,28 @@ namespace AutenticacionCoordenadas.Controllers
 
         public IActionResult Autenticacion()
         {
-           var rand = new Random();
-           ArrayList lista = new ArrayList();
-           int numero,letra;
-           string salida = "";
-           for (int i = 0; i < 4; i++)
-           {  
-              do
-              {
-                numero = rand.Next(1, 5);
-                letra = rand.Next(65, 74); // 5,6,7,8,9,0,1,2,3,4
-                string letraS = ((char)letra).ToString();
-                string numS = numero.ToString();
-                salida = letraS + numS;
+            var rand = new Random();
+            ArrayList lista = new ArrayList();
+            int numero, letra;
+            string salida = "";
+            for (int i = 0; i < 4; i++)
+            {
+                do
+                {
+                    numero = rand.Next(1, 5);
+                    letra = rand.Next(65, 74); // 5,6,7,8,9,0,1,2,3,4
+                    string letraS = ((char)letra).ToString();
+                    string numS = numero.ToString();
+                    salida = letraS + numS;
                 } while (lista.Contains(salida));
                 lista.Add(salida);
-              
-           }
-        
-           ViewBag.Casilla1 = lista[0].ToString();
-           ViewBag.Casilla2 = lista[1].ToString();
-           ViewBag.Casilla3 = lista[2].ToString();
-           ViewBag.Casilla4 = lista[3].ToString();
+
+            }
+
+            ViewBag.Casilla1 = lista[0].ToString();
+            ViewBag.Casilla2 = lista[1].ToString();
+            ViewBag.Casilla3 = lista[2].ToString();
+            ViewBag.Casilla4 = lista[3].ToString();
 
             return View();
         }
@@ -93,6 +94,22 @@ namespace AutenticacionCoordenadas.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> SolicitarTarjeta()
+        {
+
+            Usuario usuario = new Usuario();
+            usuario.Id = Int32.Parse(HttpContext.Session.GetString("_Id"));
+            usuario.Observaciones = "Solicita tarjeta";
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Usuario/SolicitudTarjeta", usuario);
+
+            return Json(new { status = true, message = "Listo" });
+        }
+
+        [HttpPost]
         public async Task<IActionResult> PeticionD()
         {
             Tarjeta datosTarjeta = new Tarjeta();
@@ -104,7 +121,7 @@ namespace AutenticacionCoordenadas.Controllers
                 "https://localhost:44333/Tarjeta/creacionTarjeta", datosTarjeta);
             return Json(new { status = true, message = "Realizado" });
 
-            
+
         }
 
         [HttpPost]
@@ -134,14 +151,16 @@ namespace AutenticacionCoordenadas.Controllers
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 "https://localhost:44333/Usuario/IniciarSesion", usuario);
+            //bool logrado = response.EnsureSuccessStatusCode().;
+            // string resultado = businessUsuario.iniciarSesion(usuario);
             string resultado = await response.Content.ReadAsStringAsync();
-            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: "+resultado);
+            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + resultado);
             string error = '"' + "NULL" + '"';
             if (resultado == error)
             {
                 salida = 0;
             }
-           if(salida==0)
+            if (salida == 0)
             {
                 ViewBag.Usuario = "";
                 return View("Inicio");
@@ -150,18 +169,36 @@ namespace AutenticacionCoordenadas.Controllers
             HttpContext.Session.SetString(SessionUser, usuario.usuario);
             resultado = string.Join("", resultado.Split('"'));
             HttpContext.Session.SetString(SessionId, resultado);
-            System.Diagnostics.Debug.WriteLine(HttpContext.Session.GetString("_Id"));
+
+            usuario.Id = Int32.Parse(resultado);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response2 = await client.PostAsJsonAsync(
+                "https://localhost:44333/Usuario/EstadoTarjeta", usuario);
+
+            string resultado2 = await response2.Content.ReadAsStringAsync();
+            string error2 = '"' + "NULL" + '"';
+            if (resultado2 == error2)
+            {
+                salida = 0;
+            }
+            if (salida == 0)
+            {
+                ViewBag.Usuario = "";
+                return View("Peticion");
+            }
+
             configurarParaAutenticacion();
             return View("Autenticacion");
-            //return Json(new { status = true, message = resultado});
         }
 
         [HttpPost]
-        public async Task<IActionResult> AutenticarAsync(BaseModel baseModel)
+        public IActionResult Autenticar(BaseModel baseModel)
         {
-            
+
             ViewBag.Salida = "FALLO";
-            int salida1 = validarCasilla(baseModel.FC1,baseModel.CA1).Result;
+            int salida1 = validarCasilla(baseModel.FC1, baseModel.CA1).Result;
             int salida2 = validarCasilla(baseModel.FC2, baseModel.CA2).Result;
             int salida3 = validarCasilla(baseModel.FC3, baseModel.CA3).Result;
             int salida4 = validarCasilla(baseModel.FC4, baseModel.CA4).Result;
@@ -170,17 +207,6 @@ namespace AutenticacionCoordenadas.Controllers
             if (suma == 4)
             {
                 ViewBag.Salida = "INGRESA";
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = await client.GetAsync(
-                    "https://localhost:44333/Usuario/BuscarId/"+ HttpContext.Session.GetString("_Id"));
-                string resultado = await response.Content.ReadAsStringAsync();
-                var usuario = JsonConvert.DeserializeObject<Usuario>(resultado);
-                if (usuario.TipoUsuario == 'a')
-                {
-                    return Redirect("~/Administrador/Index");
-                }
             }
             return View("Salida");
         }
@@ -214,8 +240,8 @@ namespace AutenticacionCoordenadas.Controllers
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 "https://localhost:44333/Tarjeta/autenticar", datosTarjeta);
             string resultado = await response.Content.ReadAsStringAsync();
-           
-            
+
+
             Console.WriteLine(resultado);
             string error = '"' + "NULL" + '"';
             if (resultado == error)

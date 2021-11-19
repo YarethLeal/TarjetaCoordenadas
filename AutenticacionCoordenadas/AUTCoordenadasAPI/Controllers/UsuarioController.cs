@@ -20,14 +20,34 @@ namespace AUTCoordenadasAPI.Controllers
         {
             Configuration = configuration;
         }
+
         [HttpPost]
         [Route("IniciarSesion")]
         public string IniciarSesion(Usuario datosUsuario)
         {
-           
+
             return (new BusinessUsuario().iniciarSesion(datosUsuario));
-           // return "NULL";
-        }
+            // return "NULL";
+        }// iniciar sesion
+
+        [HttpPost]
+        [Route("EstadoTarjeta")]
+        public string EstadoTarjeta(Usuario datosUsuario)
+        {
+
+            return (new BusinessUsuario().estadoTarjeta(datosUsuario));
+            // return "NULL";
+        }// estado tarjeta
+
+        [HttpPost]
+        [Route("SolicitudTarjeta")]
+        public string SolicitudTarjeta(Usuario datosUsuario)
+        {
+
+            return (new BusinessUsuario().solicitudTarjeta(datosUsuario));
+            // return "NULL";
+        }// solicitud tarjeta
+
         [HttpPost]
         [Route("Registrar")]
         public async Task<String> Registrar(Usuario usuario)

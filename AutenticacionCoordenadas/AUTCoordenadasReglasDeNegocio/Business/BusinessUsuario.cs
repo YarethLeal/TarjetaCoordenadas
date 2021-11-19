@@ -14,6 +14,17 @@ namespace AUTCoordenadasReglasDeNegocio.Business
         {
             return _dUser.iniciarSesion(datosUsuario);
         }
+
+        public string estadoTarjeta(Usuario datosUsuario)
+        {
+            return _dUser.estadoTarjeta(datosUsuario);
+        }
+
+        public string solicitudTarjeta(Usuario datosUsuario)
+        {
+            return _dUser.solicitudTarjeta(datosUsuario);
+        }
+
         public async Task<String> Registrar(Usuario usuario)
         {
             return await _dUser.Registrar(usuario);

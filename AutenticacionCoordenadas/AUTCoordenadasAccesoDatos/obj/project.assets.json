@@ -6043,19 +6043,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yareth\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
       "projectName": "AUTCoordenadasAccesoDatos",
-      "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
-      "packagesPath": "C:\\Users\\Yareth\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\AUTCoordenadasAccesoDatos.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasAccesoDatos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yareth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6069,8 +6069,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj": {
-              "projectPath": "D:\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj"
+            "C:\\Users\\Lenovo\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TarjetaCoordenadas\\AutenticacionCoordenadas\\AUTCoordenadasEntities\\AUTCoordenadasEntities.csproj"
             }
           }
         }
@@ -6117,7 +6117,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.209\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
