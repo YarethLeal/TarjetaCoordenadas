@@ -56,6 +56,20 @@ namespace AUTCoordenadasAPI.Controllers
             // return "NULL";
         }// iniciar sesion
 
+        [HttpPost]
+        [Route("DesbloquearTarjeta")]
+        public string DesbloquearTarjeta(Tarjeta tarjeta)
+        {
+            return (new BusinessTarjeta().desbloquearTarjeta(tarjeta));
+        }// desbloquear tarjeta
+
+        [HttpPost]
+        [Route("BloquearTarjeta")]
+        public string BloquearTarjeta(Tarjeta tarjeta)
+        {
+            return (new BusinessTarjeta().bloquearTarjeta(tarjeta));
+        }// bloquear tarjeta
+
     }
 }
 

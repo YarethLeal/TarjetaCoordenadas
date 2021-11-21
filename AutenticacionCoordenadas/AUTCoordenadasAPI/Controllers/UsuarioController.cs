@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AUTCoordenadasReglasDeNegocio.Business;
 using Microsoft.Extensions.Configuration;
+using System.Collections;
 
 namespace AUTCoordenadasAPI.Controllers
 {
@@ -40,6 +41,30 @@ namespace AUTCoordenadasAPI.Controllers
         }// estado tarjeta
 
         [HttpPost]
+        [Route("ContarIntento")]
+        public string ContarIntento(Usuario datosUsuario)
+        {
+            return (new BusinessUsuario().contarIntento(datosUsuario));
+            // return "NULL";
+        }// estado tarjeta
+
+        [HttpPost]
+        [Route("LimpiarIntentos")]
+        public string LimpiarIntentos(Usuario datosUsuario)
+        {
+            return (new BusinessUsuario().limpiarIntentos(datosUsuario));
+            // return "NULL";
+        }// estado tarjeta
+
+        [HttpPost]
+        [Route("BloquearTarjeta")]
+        public string BloquearTarjeta(Tarjeta tarjeta)
+        {
+            return (new BusinessTarjeta().bloquearTarjeta(tarjeta));
+            // return "NULL";
+        }// estado tarjeta
+
+        [HttpPost]
         [Route("SolicitudTarjeta")]
         public string SolicitudTarjeta(Usuario datosUsuario)
         {
@@ -47,6 +72,59 @@ namespace AUTCoordenadasAPI.Controllers
             return (new BusinessUsuario().solicitudTarjeta(datosUsuario));
             // return "NULL";
         }// solicitud tarjeta
+
+        [HttpPost]
+        [Route("DatosAutenticar")]
+        public string DatosAutenticar(Usuario datosUsuario)
+        {
+            // el usuario tiene tarjeta?
+            string estado=(new BusinessUsuario().estadoTarjeta(datosUsuario));
+            if (String.Equals(estado, "A"))
+            {
+                var rand = new Random();
+                ArrayList lista = new ArrayList();
+                int numero, letra;
+                string salida = "";
+                for (int i = 0; i < 4; i++)
+                {
+                    do
+                    {
+                        numero = rand.Next(1, 5);
+                        letra = rand.Next(65, 74); // 5,6,7,8,9,0,1,2,3,4
+                        string letraS = ((char)letra).ToString();
+                        string numS = numero.ToString();
+                        salida = letraS + numS;
+                    } while (lista.Contains(salida));
+                    lista.Add(salida);
+
+                }
+
+                string valores = "";
+                valores += lista[0].ToString();
+                valores += "-";
+                valores += lista[1].ToString();
+                valores += "-";
+                valores += lista[2].ToString();
+                valores += "-";
+                valores += lista[3].ToString();
+
+                estado = valores;
+            }
+            else if (String.Equals(estado, "B"))
+            {
+                estado = "Su tarjeta esta bloqueada";
+            }
+            else
+            {
+                estado = "Solicite una tarjeta en el sistema";
+            }// else
+
+
+            return estado;
+            // return "NULL";
+        }// solicitud tarjeta
+
+       
 
         [HttpPost]
         [Route("Registrar")]

@@ -10,10 +10,20 @@ namespace AUTCoordenadasReglasDeNegocio.Business
     {
         private static DataTarjeta dataTarjeta = new DataTarjeta();
 
-      public string autenticar(Tarjeta datosTarjeta)
+        public string autenticar(Tarjeta datosTarjeta)
         {
             return dataTarjeta.autenticar(datosTarjeta);
         }
+
+        public string desbloquearTarjeta(Tarjeta datosTarjeta)
+        {
+            return dataTarjeta.desbloquearTarjeta(datosTarjeta);
+        }// desbloquear
+
+        public string bloquearTarjeta(Tarjeta datosTarjeta)
+        {
+            return dataTarjeta.bloquearTarjeta(datosTarjeta);
+        }// bloquear
 
         public string creacionTarjeta(Tarjeta datosTarjeta)
         {

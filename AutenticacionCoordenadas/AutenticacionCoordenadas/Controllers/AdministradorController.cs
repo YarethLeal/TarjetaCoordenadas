@@ -111,16 +111,31 @@ namespace AutenticacionCoordenadas.Controllers
             //obtenerValoresMensaje(resultado);
 
             //return Json(new { status = true, message = accion });
+            string salida = "Solicitud tarjeta";
+            if (String.Equals(mensaje.accion, salida))
+            {
+                Tarjeta tarjeta = new Tarjeta();
+                tarjeta.id_usuario = Int32.Parse(baseM.usuario);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response2 = await client.PostAsJsonAsync(
+                    "https://localhost:44333/Administrador/CreacionTarjeta", tarjeta);
 
-            Tarjeta tarjeta = new Tarjeta();
-            tarjeta.id_usuario = Int32.Parse(baseM.usuario);
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response2 = await client.PostAsJsonAsync(
-                "https://localhost:44333/Administrador/CreacionTarjeta", tarjeta);
+                string resultado2 = await response2.Content.ReadAsStringAsync();
+            }
+            else
+            {
+                Tarjeta tarjeta = new Tarjeta();
+                tarjeta.id_usuario = Int32.Parse(baseM.usuario);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response2 = await client.PostAsJsonAsync(
+                    "https://localhost:44333/Administrador/DesbloquearTarjeta", tarjeta);
 
-            string resultado2 = await response2.Content.ReadAsStringAsync();
+                string resultado2 = await response2.Content.ReadAsStringAsync();
+            }//else
 
             ViewBag.Mensajes = "";
             return View("Solicitud");

@@ -1,19 +1,32 @@
-﻿
+﻿@model AUTCoordenadasEntities.Entities.BaseModel
+@using Microsoft.AspNetCore.Http
 <div>
     <a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="float:right">Bienvenido: Usuario</a>
 </div>
 <div class="d-flex justify-content-center btn-group-vertical">
 
-    <p style="font-size:34px">Solicitar tarjeta de coordenadas.</p>
-    <input type="submit" id="btnPedir" value="Solicitar" class="btn btn-primary" style="background-color: #005cb9; width: 200px;" />
-
-    <form class="row gy-2 gx-3 align-items-center" asp-action="PeticionD">
-        <input type="submit" value="Buscar" class="btn btn-primary" style="background-color: #F35C2D;" />
-    </form>
+   
 
     <form class="row gy-2 gx-3 align-items-center" asp-action="SolicitarTarjeta">
         <input type="submit" value="Solicitar tarjeta" class="btn btn-primary" style="background-color: #F35C2D;" />
     </form>
-
-
 </div>
+
+<script>
+   
+    var usuario;
+    var tipo;
+    var motivo;
+
+    document.getElementById("btnVerificar").onclick = function () { verificar() };
+    
+    function verificar() {
+        // ajax
+
+        // alert(id);
+        motivo = document.getElementById('CA1').value;
+        alert(motivo);
+        //   alert(document.getElementById('motivo').value);
+    }
+
+</script>
