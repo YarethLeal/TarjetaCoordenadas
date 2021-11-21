@@ -65,6 +65,42 @@ namespace AUTCoordenadasAccesoDatos.Data
             return salida;
         }
 
+        public string desbloquearTarjeta(Tarjeta datosTarjeta)
+        {
+            string salida = "NULL";
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SP_DesbloquearTarjeta", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            //  @idUsuario int, @idAdministrador int, @motivo varchar(255)
+            sqlCommand.Parameters.AddWithValue("@IdUsuario", datosTarjeta.id_usuario);
+
+            sqlCommand.ExecuteNonQuery();
+
+            sqlConnection.Close();
+            return salida;
+        }// desbloquearTarjeta
+
+        public string bloquearTarjeta(Tarjeta datosTarjeta)
+        {
+            string salida = "NULL";
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SP_BloquearTarjeta", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            //  @idUsuario int, @idAdministrador int, @motivo varchar(255)
+             sqlCommand.Parameters.AddWithValue("@IdUsuario", datosTarjeta.id_usuario);
+          //  sqlCommand.Parameters.AddWithValue("@IdUsuario", 10);
+
+            sqlCommand.ExecuteNonQuery();
+
+            sqlConnection.Close();
+            return salida;
+        }// bloquearTarjeta
+
+        public string datosAutenticar(Tarjeta datosTarjeta)
+        {
+            return "s";
+        }
+
         public string creacionTarjeta(Tarjeta datosTarjeta)
         {
             string salida = "NULL";
@@ -194,7 +230,7 @@ namespace AUTCoordenadasAccesoDatos.Data
         private void enviarTarjeta(string correo, int idUsuario)
         {
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("correoDeAdministrador@gmail.com");
+            mail.From = new MailAddress("correoadministrador@gmail.com");
             mail.To.Add(correo);
             // estructura interna del correo
             string htmlMessage = @"<html>
@@ -210,7 +246,7 @@ namespace AUTCoordenadasAccesoDatos.Data
             // agregar imagen
             string mediaType = MediaTypeNames.Image.Jpeg;
             // carpeta local de la maquina de un administrador
-            LinkedResource img = new LinkedResource("C:\\Users\\hp\\Documents\\Github\\TarjetaCoordenadas\\Imagen\\tarjetaUsuario"+idUsuario+".jpg", mediaType);
+            LinkedResource img = new LinkedResource("C:\\Users\\Lenovo\\Downloads\\tarjetaUsuario" + idUsuario + ".jpg", mediaType);
 
             img.ContentId = "TarjetaCoordenadas";
             img.ContentType.MediaType = mediaType;
@@ -229,10 +265,11 @@ namespace AUTCoordenadasAccesoDatos.Data
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
 
-            NetworkCredential nc = new NetworkCredential("correoDeAdministrador@gmail.com", "contraseña");
+            NetworkCredential nc = new NetworkCredential("correoadministrador@gmail.com", "12345678");
             smtp.EnableSsl = true;
             smtp.Credentials = nc;
             smtp.Send(mail);
+
 
         }// enviarTarjeta
 

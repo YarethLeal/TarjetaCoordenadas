@@ -188,6 +188,11 @@ namespace AutenticacionCoordenadas.Controllers
                 ViewBag.Usuario = "";
                 return View("Peticion");
             }
+            string bloqueado = '"' + "B" + '"';
+            if (resultado2 == bloqueado)
+            {
+                return View("Bloqueo");
+            }
 
             configurarParaAutenticacion();
             return View("Autenticacion");
@@ -250,7 +255,48 @@ namespace AutenticacionCoordenadas.Controllers
             }
 
             return salida;
-        }
+        }// validarCasilla
+
+        public async Task<int> validarCasillaExterna(string FilaColumna, string valor, string usuario)
+        {
+            int salida = 1;
+
+            string FilaCol = "";
+            int cmpVal = valor[0].CompareTo('0');
+
+            if (cmpVal == 0)
+            {
+                FilaCol = valor[1].ToString();
+            }
+            else
+            {
+                FilaCol = valor;
+            }// else
+
+            Tarjeta datosTarjeta = new Tarjeta();
+            datosTarjeta.id = Int32.Parse(usuario);
+            string filaColumna = FilaColumna;
+            datosTarjeta.fila = Int32.Parse(filaColumna[1].ToString());
+            datosTarjeta.columna = filaColumna[0].ToString();
+            datosTarjeta.valor = Int32.Parse(FilaCol);
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+                "https://localhost:44333/Tarjeta/autenticar", datosTarjeta);
+            string resultado = await response.Content.ReadAsStringAsync();
+
+
+            Console.WriteLine(resultado);
+            string error = '"' + "NULL" + '"';
+            if (resultado == error)
+            {
+                salida = 0;
+            }
+
+            return salida;
+        }// validarCasillaExterna
 
         public void configurarParaAutenticacion()
         {

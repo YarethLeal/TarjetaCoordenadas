@@ -97,6 +97,54 @@ namespace AUTCoordenadasAccesoADatos.Data
             return resultado;
         }// tiene tarjeta
 
+        public string contarIntento(Usuario datosUsuario)
+        {
+            string resultado = "NULL";
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SP_SumarError", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@idUsuario", datosUsuario.Id);
+            
+
+            sqlCommand.ExecuteNonQuery();
+            using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+
+                    DataRow dr = dt.Rows[i];
+                    string[] allColumns = dr.ItemArray.Select(obj => obj.ToString()).ToArray();
+                    ArrayList itm = new ArrayList(allColumns);
+
+                    resultado = itm[0].ToString();
+
+                }
+
+            };
+            sqlConnection.Close();
+           
+
+            return resultado;
+        }// contarIntento
+
+        public string limpiarIntentos(Usuario datosUsuario)
+        {
+            string resultado = "NULL";
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SP_QuitarIntentos", sqlConnection);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@idUsuario", datosUsuario.Id);
+
+            sqlCommand.ExecuteNonQuery();
+
+            sqlConnection.Close();
+
+            return resultado;
+        }// limpiarIntentos
+
         public string solicitudTarjeta(Usuario datosUsuario)
         {
             string resultado = "NULL";

@@ -20,18 +20,20 @@ namespace AUTCoordenadasAPI.Controllers
         {
             if (datosTarjeta.valor.ToString().Length < 3)
             {
-                System.Diagnostics.Debug.WriteLine("API User atenticar");
+              //  System.Diagnostics.Debug.WriteLine("API User atenticar");
                 return new BusinessTarjeta().autenticar(datosTarjeta);
                  
             }
             return "";
         }
+
         [HttpPost]
         [Route("creacionTarjeta")]
         public string creacionTarjeta(Tarjeta datosTarjeta)
         {
             return new BusinessTarjeta().creacionTarjeta(datosTarjeta);
         }
+
         public string obtenerTarjetasEntregadasPorFecha(string fechaI, string fechaF)
         {
             return new BusinessTarjeta().obtenerTarjetasEntregadasPorFecha(fechaI, fechaF);

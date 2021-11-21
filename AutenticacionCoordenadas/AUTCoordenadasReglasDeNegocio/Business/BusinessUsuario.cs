@@ -20,6 +20,16 @@ namespace AUTCoordenadasReglasDeNegocio.Business
             return _dUser.estadoTarjeta(datosUsuario);
         }
 
+        public string contarIntento(Usuario datosUsuario)
+        {
+            return _dUser.contarIntento(datosUsuario);
+        }// contarIntento
+
+        public string limpiarIntentos(Usuario datosUsuario)
+        {
+            return _dUser.limpiarIntentos(datosUsuario);
+        }// limpiarIntentos
+
         public string solicitudTarjeta(Usuario datosUsuario)
         {
             return _dUser.solicitudTarjeta(datosUsuario);
