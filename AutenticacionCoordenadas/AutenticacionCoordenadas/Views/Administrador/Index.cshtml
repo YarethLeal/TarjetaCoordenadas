@@ -1,36 +1,27 @@
-﻿
-<div class="container-fluid text-center">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Administración</span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li>
-                        <a class="nav-link text-light" asp-area="" asp-controller="Administrador" asp-action="Solicitud">Solicitudes</a>
-                    </li>
-                    <li>
-                        <a class="nav-link text-light" asp-area="" asp-controller="Administrador" asp-action="Registro">Registro de Usuario</a>
+﻿<!-- Sidebar -->
+<div id="sidebar1" class="w3-sidebar w3-light-grey w3-bar-block bg-dark" style="width:25%">
 
-                    </li>
-                    
-                    <li>
-                        <a class="nav-link text-light" asp-area="" asp-controller="Administrador" asp-action="Buscar">Buscar Usuario</a>
-                    </li>
-                  
-                    <li>
-                        <a class="nav-link text-light" asp-area="" asp-controller="Administrador" asp-action="RegistroOficina">Registro de Oficina</a>
+    <!-- encabezado -->
+    <h3 id="sidebar1" class="w3-bar-item">
+        <img src="images/OIJ.png" with="40" height="32" />Administración
+    </h3>
+    <br />
 
-                    </li>
+    <!-- solicitud -->
+    <a class="nav-link text-white" asp-area="" asp-controller="Administrador" asp-action="Solicitud">
+        Solicitudes
+    </a>
 
-                    <li>
-                        <a class="nav-link text-light" asp-area="" asp-controller="Administrador" asp-action="BuscarOficina">Buscar Oficina</a>
+    <!--registrar usuario -->
+    <a id="sidebar1" class="nav-link text-white" asp-area="" asp-controller="Administrador" asp-action="Registro">Registro de usuario</a>
 
-                    </li>
-                </ul>
-                <hr>
+    <!--buscar usuario -->
+    <a id="sidebar1" class="nav-link text-white" asp-area="" asp-controller="Administrador" asp-action="Buscar">Buscar Usuario</a>
 
-            </div>
-        </div>
+    <!--registrar oficina -->
+    <a id="sidebar1" class="nav-link text-white" asp-area="" asp-controller="Administrador" asp-action="RegistroOficina">Registro de Oficina</a>
+
+    <!--buscar oficina -->
+    <a id="sidebar1" class="nav-link text-white" asp-area="" asp-controller="Administrador" asp-action="BuscarOficina">Buscar Oficina</a>
+
 </div>
