@@ -152,9 +152,10 @@ namespace AUTCoordenadasAPI.Controllers
 
         [HttpPost]
         [Route("EliminarUsuario")]
-        public async Task<String> EliminarUsuario(int id)
+        public async Task<String> EliminarUsuario(Usuario usuario)
         {
-            return await (new BusinessUsuario().EliminarUsuario(id));
+            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + usuario.Id);
+            return await (new BusinessUsuario().EliminarUsuario(usuario.Id));
         }
 
         [HttpGet]
