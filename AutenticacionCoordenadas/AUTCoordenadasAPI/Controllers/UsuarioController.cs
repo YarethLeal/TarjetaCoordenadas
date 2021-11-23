@@ -143,7 +143,7 @@ namespace AUTCoordenadasAPI.Controllers
             return await (new BusinessUsuario().ListaUsuarios()); ;
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("ActualizarUsuario")]
         public async Task<String> ActualizarUsuario(Usuario usuario)
         {

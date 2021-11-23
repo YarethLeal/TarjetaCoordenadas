@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace AutenticacionCoordenadas.Controllers
 {
@@ -35,8 +36,6 @@ namespace AutenticacionCoordenadas.Controllers
         public UsuarioController(IConfiguration configuration)
         {
             Configuration = configuration;
-            //client.BaseAddress = new Uri("https://localhost:44333/");
-            //client.BaseAddress = new Uri("https://localhost:5001/");
         }
 
         public IActionResult Index()
@@ -151,10 +150,8 @@ namespace AutenticacionCoordenadas.Controllers
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 "https://localhost:44333/Usuario/IniciarSesion", usuario);
-            //bool logrado = response.EnsureSuccessStatusCode().;
-            // string resultado = businessUsuario.iniciarSesion(usuario);
             string resultado = await response.Content.ReadAsStringAsync();
-            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + resultado);
+            //System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + resultado);
             string error = '"' + "NULL" + '"';
             if (resultado == error)
             {
@@ -199,7 +196,7 @@ namespace AutenticacionCoordenadas.Controllers
         }
 
         [HttpPost]
-        public IActionResult Autenticar(BaseModel baseModel)
+        public async Task<IActionResult> Autenticar(BaseModel baseModel)
         {
 
             ViewBag.Salida = "FALLO";
@@ -212,6 +209,17 @@ namespace AutenticacionCoordenadas.Controllers
             if (suma == 4)
             {
                 ViewBag.Salida = "INGRESA";
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = await client.GetAsync(
+                    "https://localhost:44333/Usuario/BuscarId/" + HttpContext.Session.GetString("_Id"));
+                string resultado = await response.Content.ReadAsStringAsync();
+                var usuario = JsonConvert.DeserializeObject<Usuario>(resultado);
+                if (usuario.TipoUsuario == 'a')
+                {
+                    return Redirect("~/Administrador/Index");
+                }
             }
             return View("Salida");
         }

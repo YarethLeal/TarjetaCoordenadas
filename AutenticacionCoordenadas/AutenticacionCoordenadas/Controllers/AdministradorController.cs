@@ -43,8 +43,6 @@ namespace AutenticacionCoordenadas.Controllers
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 "https://localhost:44333/Administrador/ObtenerMensajes", usuario);
-            //bool logrado = response.EnsureSuccessStatusCode().;
-            // string resultado = businessUsuario.iniciarSesion(usuario);
             string resultado = await response.Content.ReadAsStringAsync();
             //  System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + resultado);
 
@@ -71,8 +69,6 @@ namespace AutenticacionCoordenadas.Controllers
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 "https://localhost:44333/Administrador/RechazarSolicitud", mensaje);
-            //bool logrado = response.EnsureSuccessStatusCode().;
-            // string resultado = businessUsuario.iniciarSesion(usuario);
             string resultado = await response.Content.ReadAsStringAsync();
             //  System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + resultado);
 
@@ -150,7 +146,7 @@ namespace AutenticacionCoordenadas.Controllers
             var response = await client.GetAsync("https://localhost:44333/Usuario/BuscarId/" + IdEdit);
             string resultado = await response.Content.ReadAsStringAsync();
             var usuario = JsonConvert.DeserializeObject<Usuario>(resultado);
-
+            System.Diagnostics.Debug.WriteLine("Busca Id");
             ViewBag.Usuario = usuario;
             return View();
         }
@@ -158,7 +154,7 @@ namespace AutenticacionCoordenadas.Controllers
         [HttpPost]
         public async Task<IActionResult> Actualizar(Usuario usuarioParam)
         {
-
+            System.Diagnostics.Debug.WriteLine("Actualizar");
             usuarioParam.FechaActualiza = DateTime.Today;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -205,14 +201,15 @@ namespace AutenticacionCoordenadas.Controllers
         [HttpPost]
         public async Task<IActionResult> EliminarUsuario(int IdDelete)
         {
+            //System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + IdDelete);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 "https://localhost:44333/Usuario/EliminarUsuario", IdDelete);
-            ViewBag.respuesta = JsonConvert.DeserializeObject<String>(response.Content.ReadAsStringAsync().Result);
-
-
+            //ViewBag.respuesta = JsonConvert.DeserializeObject<String>(response.Content.ReadAsStringAsync());
+            string resultado = await response.Content.ReadAsStringAsync();
+            ViewBag.respuesta = resultado;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
