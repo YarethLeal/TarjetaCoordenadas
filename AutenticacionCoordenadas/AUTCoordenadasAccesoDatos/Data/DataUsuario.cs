@@ -104,7 +104,7 @@ namespace AUTCoordenadasAccesoADatos.Data
             sqlCommand = new SqlCommand("SP_SumarError", sqlConnection);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@idUsuario", datosUsuario.Id);
-            
+
 
             sqlCommand.ExecuteNonQuery();
             using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
@@ -125,7 +125,7 @@ namespace AUTCoordenadasAccesoADatos.Data
 
             };
             sqlConnection.Close();
-           
+
 
             return resultado;
         }// contarIntento
@@ -206,6 +206,7 @@ namespace AUTCoordenadasAccesoADatos.Data
                 {
 
                     var usuario = _context.tb_Usuario.First(a => a.Id == usuarioParam.Id);
+                    System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + usuario.ToString());
                     usuario.usuario = usuarioParam.usuario;
                     usuario.Correo = usuarioParam.Correo;
                     usuario.OficinaID = usuarioParam.OficinaID;
@@ -224,29 +225,22 @@ namespace AUTCoordenadasAccesoADatos.Data
 
         public async Task<String> Eliminar(int id)
         {
-            using (var _context = new BDContexts())
+            try
             {
-
-
-                var usuario = _context.tb_Usuario.First(a => a.Id == id);
-
-                if (usuario != null)
+                using (var _context = new BDContexts())
                 {
-                    try
-                    {
-                        usuario.Eliminado = true;
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateException /* ex */)
-                    {
-                        //Log the error (uncomment ex variable name and write a log.)
-                        return "No se puede eliminar. " +
-                             "Vuelve a intentarlo y, si el problema persiste, " +
-                             "consulte con el administrador del sistema.";
-                    }
+                    var usuario = _context.tb_Usuario.First(a => a.Id == id);
+                    System.Diagnostics.Debug.WriteLine("Esta es la respuesta elimina: " + usuario.usuario);
+                    usuario.Eliminado = true;
+                    await _context.SaveChangesAsync();
                 }
-
-
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.)
+                return "No se puede eliminar. " +
+                     "Vuelve a intentarlo y, si el problema persiste, " +
+                     "consulte con el administrador del sistema.";
             }
             return "Usuario eliminado con exito";
         }
@@ -255,7 +249,7 @@ namespace AUTCoordenadasAccesoADatos.Data
         {
             using (var _context = new BDContexts())
             {
-                List<Usuario> usuario = await _context.tb_Usuario.Where(x => x.NombreUsuario == nombre).ToListAsync();
+                List<Usuario> usuario = await _context.tb_Usuario.Where(x => x.usuario.StartsWith(nombre)).ToListAsync();
                 System.Diagnostics.Debug.WriteLine("Lista: " + usuario.ToArray());
                 if (usuario == null)
                 {
