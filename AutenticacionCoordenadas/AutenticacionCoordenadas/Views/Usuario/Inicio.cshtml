@@ -6,18 +6,21 @@
 
         <form method="post" asp-controller="Usuario" asp-action="IniciarSesion">
 
-            <div class="form-group w-100">
-                <label class="control-label">Nombre de usuario:</label>
-                <input asp-for="Usuario" type="text" value="@ViewBag.Usuario" class="form-control" required />
-            </div>
-            <div class="form-group w-100">
-                <label class="control-label">Contraseña:</label>
-                <input asp-for="Contrasena" type="password" class="form-control" required />
-            </div>
+               <div class="form-group w-100">
+                <img src="~/imagen/EscudoOIJ.png" width="200" height="200">
+               </div>
+                <div class="form-group w-100">
+                    <label class="control-label">Nombre de usuario:</label>
+                    <input asp-for="Usuario" type="text" value="@ViewBag.Usuario" class="form-control" required />
+                </div>
+                <div class="form-group w-100">
+                    <label class="control-label">Contraseña:</label>
+                    <input asp-for="Contrasena" type="password" class="form-control" required />
+                </div>
 
-            <div class="text-center">
-                <input type="submit" value="Iniciar sesión" class="btn btn-primary" style="background-color: #005cb9;" />
-            </div>
+                <div class="text-center">
+                    <input type="submit" value="Iniciar sesión" class="btn btn-primary" style="background-color: #005cb9;" />
+                </div>
         </form>
 
 
