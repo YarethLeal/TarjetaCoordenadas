@@ -201,12 +201,15 @@ namespace AutenticacionCoordenadas.Controllers
         [HttpPost]
         public async Task<IActionResult> EliminarUsuario(int IdDelete)
         {
-            //System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + IdDelete);
+            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + IdDelete);
+            Usuario tempUser = new Usuario();
+            tempUser.Id = IdDelete;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = await client.PostAsJsonAsync(
-                "https://localhost:44333/Usuario/EliminarUsuario", IdDelete);
+                "https://localhost:44333/Usuario/EliminarUsuario", tempUser);
+            System.Diagnostics.Debug.WriteLine("Esta es la respuesta: " + IdDelete);
             //ViewBag.respuesta = JsonConvert.DeserializeObject<String>(response.Content.ReadAsStringAsync());
             string resultado = await response.Content.ReadAsStringAsync();
             ViewBag.respuesta = resultado;

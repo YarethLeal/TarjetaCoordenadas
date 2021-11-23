@@ -233,6 +233,7 @@ namespace AUTCoordenadasAccesoADatos.Data
                     System.Diagnostics.Debug.WriteLine("Esta es la respuesta elimina: " + usuario.usuario);
                     usuario.Eliminado = true;
                     await _context.SaveChangesAsync();
+
                 }
             }
             catch (DbUpdateException /* ex */)
